@@ -1,0 +1,187 @@
+@CHARSET "UTF-8";
+
+@IMPORT url("page-common.css");
+
+body {
+	background: #ffffff;
+}
+
+.wrapper.wrapper-content {
+    width: 100%;
+    height: 100%;
+    padding: 10px 50px;
+}
+
+.form-buttons {
+    width: 100%;
+    text-align: center;
+}
+
+.form-buttons > .btn {
+    margin-right:  20px;
+}
+
+.dept-panel {
+    position: absolute;
+    z-index: 2;
+    background: #ffffff;
+    border: 1px solid #dddddd;
+    border-radius: 5px;
+    margin-top: 32px;
+    height: 300px;
+    overflow-y: auto;
+}
+
+.dept-panel > .dept-item {
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    padding: 0 10px;
+    background: #ffffff;
+    cursor: pointer;
+}
+
+.dept-panel > .dept-item:hover {
+    background: #38b03f;
+    color: #ffffff;
+}
+
+.head-line {
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    float: left;
+    background: #ffef7e;
+    margin-bottom: 10px;
+    padding-left: 20px;
+    color: #ff0000
+}
+
+.search-panel {
+    padding-top: 0;
+}
+
+.form-group {
+    margin-bottom: 8px !important;
+}
+
+.form-group > label {padding-right: 10px;}
+
+.icon-panel {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: #ffffff;
+    border: 1px solid #eedddd;
+    z-index: 100;
+    overflow: auto;
+}
+
+.icon-box {
+    float: left;
+    margin: 4px 10px;
+    position: relative;
+    border: 1px solid #ffffff;
+}
+
+.icon-box.choose {
+    border: 1px solid #ff0000;
+}
+
+.icon-box:hover {
+    border: 1px solid #ff9e22;
+}
+
+.choose-state {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    right: 0;
+    bottom: 0;
+    font-size: 20px;
+    cursor: pointer;
+    display: none;
+}
+
+.choose .choose-state {
+	border: 0;
+	border-left: 20px solid transparent;
+	border-bottom: 20px solid #ff0000;
+	color: #ff0000;
+	display: block;
+}
+
+
+
+/*开关的大小*/
+.switch {
+    height: 15px;
+    width: 30px;
+}
+
+/*设置checkbox不显示*/
+.ckbox {
+    display: none;
+}
+
+/*设置label标签为椭圆状*/
+.app-right label {
+    display: block;
+    background-color: #EEEEEE;
+    height: 100%;
+    width: 100%;
+    cursor: pointer;
+    border-radius: 25px;
+}
+
+/*在label标签内容之前添加如下样式，形成一个未选中状态*/
+.app-right label:before {
+    content: '';
+    display: block;
+    border-radius: 25px;
+    height: 100%;
+    width: 15px;
+    background-color: white;
+    opacity: 1;
+    box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.08);
+    -webkit-transition: all 0.2s ease;
+}
+
+/*在label标签内容之后添加如下样式，形成一个选中状态*/
+.app-right label:after {
+    position: relative;
+    top: -15px;
+    left: 15px;
+    content: '';
+    display: block;
+    border-radius: 25px;
+    height: 100%;
+    width: 15px;
+    background-color: white;
+    opacity: 0;
+    box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.1);
+    -webkit-transition: all 0.2s ease;
+}
+
+
+/* ~ 兄弟选择符。
+   p~ul ：位于 p 元素之后的所有 ul 元素
+*/
+
+/*选中后，选中样式显示*/
+.ckbox:checked~label:after {
+    opacity: 1;
+}
+
+/*选中后，未选中样式消失*/
+.ckbox:checked~label:before {
+    opacity: 0;
+}
+
+/*选中后label的背景色改变*/
+.ckbox:checked~label {
+    background-color: #008a38;
+}
+

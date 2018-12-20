@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<title> Docker节点管理 </title>
+<meta name="renderer" content="webkit" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<link rel="stylesheet" href="../../content/css/docker-detail.css" />
+<script id="seajsnode" type="text/javascript" src="../../loader.js" data-js="./js/docker-detail.js"></script></head>
+<body class="frame">
+	<div class="modal fade" id="imageMarket">
+		<div class="modal-dialog">
+	    	<div class="modal-content">
+	    		<div class="search-box">
+	    			<label class="col-sm-1" for="iname">镜像名称</label>
+					<div class="col-sm-5">
+						<input class="form-control" id="iname" name="iname" placeholder="输入名称按回车搜索"/>
+					</div>
+	    		</div>
+	    		<table class="table datatable" data-sortable="true" data-checkable="false" data-flexHeadDrag="true">
+					<thead>
+						<tr>
+							<th class="number">#</th>
+							<th>名称</th>
+							<th>描述</th>
+							<th>热度</th>
+							<th>官方的</th>
+							<th>自动化的</th>
+							<th>操作</th>
+						</tr>
+					</thead>
+					<tbody id="image-data">
+					</tbody>
+				</table>
+	    	</div>
+	  	</div>
+	</div>
+	<div class="search-panel">
+		<form class="search-form form-horizontal form-inline">
+			<div class="form-group col-sm-12 stag">
+				<div class="btn-group col-sm-6" data-toggle="buttons">
+					<label class="btn btn-primary btn-radio active">
+						<input type="radio" name="status" id="option1" value="images" checked="checked"> 镜像（有效）
+					</label>
+					<label class="btn btn-primary btn-radio">
+						<input type="radio" name="status" id="option2" value="images -a"> 镜像（所有）
+					</label>
+					<label class="btn btn-primary btn-radio">
+						<input type="radio" name="status" id="option3" value="ps"> 容器（运行中）
+					</label>
+					<label class="btn btn-primary btn-radio">
+						<input type="radio" name="status" id="option4" value="ps -a"> 容器（所有）
+					</label>
+				</div>
+			</div>
+			<div class="form-group col-sm-12 type1">
+				<div class="form-group col-sm-4">
+					<label class="col-sm-3" for="imageName">镜像名称</label>
+					<div class="col-sm-8">
+						<input class="form-control" id="imageName" name="imageName" placeholder="输入镜像名称按回车过滤"/>
+					</div>
+				</div>
+				<div class="form-group col-sm-4">
+					<label class="col-sm-3" for="imageId">镜像 ID</label>
+					<div class="col-sm-8">
+						<input class="form-control" id="imageId" name="imageId" placeholder="输入镜像ID按回车过滤"/>
+					</div>
+				</div>
+				<div class="form-group col-sm-4">
+					<label class="col-sm-3" for="tag">TAG</label>
+					<div class="col-sm-8">
+						<input class="form-control" id="tag" name="tag" placeholder="输入镜像Tag按回车过滤"/>
+					</div>
+				</div>
+			</div>
+			<div class="form-group col-sm-12 type2">
+				<div class="form-group col-sm-4">
+					<label class="col-sm-3" for="containerId">容器 ID</label>
+					<div class="col-sm-8">
+						<input class="form-control" id="containerId" name="containerId" placeholder="输入容器 ID按回车过滤"/>
+					</div>
+				</div>
+				<div class="form-group col-sm-4">
+					<label class="col-sm-3" for="image">镜像名称</label>
+					<div class="col-sm-8">
+						<input class="form-control" id="image" name="image" placeholder="输入镜像名称按回车过滤"/>
+					</div>
+				</div>
+				<div class="form-group col-sm-4">
+					<label class="col-sm-3" for="containerName">容器名称</label>
+					<div class="col-sm-8">
+						<input class="form-control" id="containerName" name="containerName" placeholder="输入容器名称按回车过滤"/>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+	
+	<div class="result-panel">
+		<div class="func-buttons type1">
+			<button class="btn btn-success btn-images" data-toggle="modal" data-target="#imageMarket"><i class="icon icon-cubes"></i> 镜像仓库</button>
+			<button class="btn btn-warning btn-del" disabled=""><i class="icon icon-trash"></i> 删除镜像</button>
+			<button class="btn btn-primary btn-create"><i class="icon icon-check"></i> 创建容器</button>
+		</div>
+		<div class="func-buttons type2 hidden">
+			<button class="btn btn-primary btn-stop" disabled=""><i class="icon icon-off"></i> 停止容器</button>
+			<button class="btn btn-success btn-run hidden" disabled=""><i class="icon icon-play"></i> 运行容器</button>
+			<button class="btn btn-warning btn-remove" disabled=""><i class="icon icon-trash"></i> 删除容器</button>
+		</div>
+		<div class="result-data grid">
+			<table class="table datatable" data-sortable="true" data-checkable="false" data-flexHeadDrag="true">
+				<thead class="type1">
+					<tr>
+						<th class="number">#</th>
+						<th>REPOSITORY（仓库）</th>
+						<th>TAG（标签）</th>
+						<th>IMAGE ID（镜像ID）</th>
+						<th>CREATED（创建于）</th>
+						<th>SIZE（大小）</th>
+					</tr>
+				</thead>
+				<thead class="type2 hidden">
+					<tr>
+						<th class="number">#</th>
+						<th>CONTAINER ID（容器ID）</th>
+						<th>IMAGE（镜像）</th>
+						<th>COMMAND（命令行）</th>
+						<th>CREATED（创建于）</th>
+						<th>STATUS（状态）</th>
+						<th>PORTS（端口）</th>
+						<th>NAMES（别名）</th>
+					</tr>
+				</thead>
+				<tbody id="data-body">
+				</tbody>
+			</table>
+		</div>
+	</div>
+	
+	<script type="text/template" id="list-tr.tpl">
+		<tr class="row-{{d.id}} {{d.trclass}}" data-id="{{d.id}}" data-imgid="{{d.imageId}}">
+			<td class="number"><i class="icon icon-check-empty"></i></td>
+			<td>{{d.repository}}</td>
+			<td>{{d.tag}}</td>
+			<td>{{d.imageId}}</td>
+			<td>{{d.created}}</td>
+			<td>{{d.size}}</td>
+		</tr>
+	</script>
+	
+	<script type="text/template" id="list-tr2.tpl">
+		<tr class="row-{{d.id}} {{d.trclass}}" data-id="{{d.id}}" data-cid="{{d.containerId}}">
+			<td class="number"><i class="icon icon-check-empty"></i></td>
+			<td>{{d.containerId}}</td>
+			<td>{{d.image}}</td>
+			<td>{{d.command}}</td>
+			<td>{{d.created}}</td>
+			<td>{{d.status}}</td>
+			<td>{{d.ports}}</td>
+			<td>{{d.names}}</td>
+		</tr>
+	</script>
+	
+	<script type="text/template" id="list-tr3.tpl">
+		<tr class="row-{{d.id}} {{d.trclass}}" data-id="{{d.id}}" data-name="{{d.name}}">
+			<td class="number">{{d.index}}</td>
+			<td>{{d.name}}</td>
+			<td>{{d.desc}}</td>
+			<td>{{d.stars}}</td>
+			<td>{{d.official}}</td>
+			<td>{{d.automared}}</td>
+			<td>{{d.buttons}}</td>
+		</tr>
+	</script>
+	
+	<script type="text/template" id="list-btn.tpl">
+		<a class="icon-btn {{d.class}}" data-right="{{d.rightCode}}" href="javascript:;" data-toggle="tooltip" data-right="{{d.rightCode}}" title="{{d.title}}"><i class="icon {{d.icon}}"></i></a>
+	</script>
+	
+	<script type="text/template" id="option.tpl">
+		<option value="{{d.code}}" {{d.attr || ''}}>{{d.name}}</option>
+	</script>
+	
+	<script type="text/template" id="label.tpl">
+		<span class="label {{d.flag}}">{{d.value}}</span>
+	</script>
+	
+	<script type="text/template" id="icon.tpl">
+		<a class="tip-icon {{d.class}}" title="{{d.title}}" data-toggle="tooltip" data-placement="{{d.dir}}" href="javascript:;"><i class="icon {{d.icon}}"></i></a>
+	</script>
+	
+	<script type="text/html" id="place.html"><span class="red">{{d.text}}</span></script>
+</body>
+</html>

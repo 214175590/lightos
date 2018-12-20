@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<title> Zookeeper服务节点 </title>
+<meta name="renderer" content="webkit" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<link rel="stylesheet" href="../../content/css/dubbo-status.css" />
+<script id="seajsnode" type="text/javascript" src="../../loader.js" data-js="./js/status"></script>
+</head>
+<body>
+	<div class="r_content">
+		<div class="title">
+			<div>Dubbo Server：<span class="dubbo"></span></div>
+			<div>Interface：<span class="interface"></span></div>
+		</div>
+		<div class="forms">
+			<textarea class="form-control info"></textarea>
+		</div>
+		<div class="func">
+			<span class="btn btn-primary btn-sync">更新</span>
+		</div>
+	</div>
+	
+	<script type="text/html" id="select1.html">
+		<select class="chosen-select form-control" id="server1">
+		{{d.option}}
+		</select>
+	</script>
+	
+	<script type="text/html" id="select2.html">
+		<select class="chosen-select form-control" id="server2">
+		{{d.option}}
+		</select>
+	</script>
+	
+	<script type="text/html" id="option.html">
+		<option value="{{d.name}}">{{d.name}}</option>
+	</script>
+	
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<title> Zookeeper服务节点 </title>
+<meta name="renderer" content="webkit" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<link rel="stylesheet" href="../../content/css/dubbo-test-server.css" />
+<script id="seajsnode" type="text/javascript" src="../../loader.js" data-js="./js/test-server"></script>
+</head>
+<body>
+	<div class="r_content">
+		<div class="help-box hidden">
+			<img src="../../content/images/explain.jpg">
+		</div>
+		<div class="r_left">
+			<div class="title">Dubbo Server Nodes <span class="tools hidden"><span class="btn btn-primary btn-add">添加节点</span></span></div>
+			<div class="lists"></div>
+		</div>
+		<div class="r_right">
+			<div class="forms">
+				<div class="status">
+					<span>状态：</span>
+					<span class="label label-success runing hidden">运行中</span>
+					<span class="label label-warning notrun hidden">未运行/不能连接</span>
+					<button class="btn btn-info btn-sync hidden">参数同步</button>
+					<button class="btn btn-primary btn-state hidden">查看状态</button>
+				</div>
+				<div class="other">
+					<div class="servers-box">ZK：</div><div class="servers"></div>
+					<div class="search-box"><input type="text" id="words" class="form-control" placeholder="输入关键词按‘Enter’键快速定位节点，连续按下‘Enter’可切换下一个匹配节点"></div>
+				</div>
+			</div>
+			<div class="class-list">
+				<div class="ztree"></div>
+			</div>
+			<div class="jar-call hidden">
+				<div class="form-control param1" placeholder="接口.方法"></div>
+				<div class="buttons">
+					<button class="btn btn-primary btn-run-patch">批量执行</button><br>
+					<button class="btn btn-primary btn-export-all hidden">导出结果</button><br>
+					<button class="btn btn-primary btn-status hidden">查看状态</button>
+					<button class="btn btn-primary btn-words hidden">接口文档</button>
+				</div>
+				<textarea class="form-control result1" placeholder="执行结果" readonly="readonly"></textarea>
+			</div>
+			<div class="method-call hidden">
+				<textarea class="form-control param2" placeholder="请求参数"></textarea>
+				<div class="buttons">
+					<div class="helpbox"><i class="icon icon-question-sign"></i></div>
+					<button class="btn btn-primary btn-desc">接口说明</button><br>
+					<button class="btn btn-primary btn-run">执行测试</button><br>
+					<button class="btn btn-primary btn-format">美化入参</button><br>
+					<button class="btn btn-primary btn-save">保存入参</button><br>
+					<button class="btn btn-primary btn-multi">用例测试</button><br>
+					<button class="btn btn-primary btn-history">历史记录</button>
+				</div>
+				<textarea class="form-control result2" placeholder="上次/本次 执行结果" readonly="readonly"></textarea>
+			</div>
+		</div>
+	</div>
+	
+	<script type="text/html" id="select.html">
+		<select class="chosen-select form-control" id="address">
+		{{d.option}}
+		</select>
+	</script>
+	
+	<script type="text/html" id="option.html">
+		<option value="{{d.value}}">{{d.name}}</option>
+	</script>
+	
+	<script type="text/html" id="item.html">
+		<div id="{{d.id}}" class="item" data-address="{{d.name}}"><i class="icon icon-arrow-right"></i> {{d.name}}</div>
+	</script>
+	
+	<script type="text/html" id="method.html">
+		<div class="lineitem" data-interface="{{d.interfaceName}}" data-method="{{d.method}}" data-type="{{d.paramType}}" data-state="norun">{{d.id}}</div>
+	</script>
+	
+</body>
+</html>

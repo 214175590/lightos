@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> 新增应用 </title>
+<link rel="stylesheet" href="../../content/css/app-add.css" />
+<script id="seajsnode" type="text/javascript" src="../../loader.js" data-js="./js/app-user"></script>
+</head>
+<body class="app-right">
+	<div class="search-panel">
+		<div class="head-line">
+			<div class="col-sm-10" id="app-info"></div>
+			<div class="col-sm-2">
+				<button class="btn btn-warning close-btn">关闭</button>
+				<button class="btn btn-primary reset-btn">复原</button>
+				<button class="btn btn-success save-btn">保存</button>
+			</div>
+		</div>
+	</div>
+	<div class="result-panel">
+		<table class="table datatable">
+			<thead id="data-head"></thead>
+			<tbody id="data-body"></tbody>
+		</table>
+	</div>
+	
+	<script type="text/template" id="list-thead.tpl">
+		<tr>
+			<th>用户账号</th>
+			<th>用户名称</th>
+			<th>应用名称</th>
+			{{d.ths}}
+		</tr>
+	</script>
+	
+	<script type="text/template" id="list-th.tpl">
+		<th>
+			<div>
+  				<label for="{{d.code}}"><input type="checkbox" class="allcheck" id="{{d.code}}"/>{{d.name}}</label>
+			</div>
+		</th>
+	</script>
+	
+	<script type="text/template" id="list-tr.tpl">
+		<tr class="row-{{d.userId}} {{d.trclass}}" data-id="{{d.userId}}">
+			<td>{{d.account}}</td>
+			<td>{{d.name}}</td>
+			<td>{{d.title}}</td>
+			{{d.tds}}
+		</tr>
+	</script>
+	
+	<script type="text/template" id="list-td.tpl">
+		<td>
+			<div class="switch">
+  				<input type="checkbox" class="ckbox" id="{{d.code}}-{{d.userId}}" value="{{d.rowId}}" data-app="{{d.deskIconId}}" data-user="{{d.userId}}" data-code="{{d.code}}" {{d.check ? 'checked' : ''}}/>
+				<label for="{{d.code}}-{{d.userId}}"></label>
+			</div>
+		</td>
+	</script>
+	
+</body>
+</html>

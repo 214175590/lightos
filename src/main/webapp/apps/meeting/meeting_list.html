@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> 会议室 </title>
+<link rel="stylesheet" href="../.././content/css/meeting-list.css" />
+<script id="seajsnode" type="text/javascript" src="../../../loader.js" data-js="./js/meeting-list"></script>
+</head>
+<body>
+	
+	<div class="search-panel">
+		<div class="form-group col-wd-10">
+			<div class="form-group form-status col-wd-2">
+				<label class="" for="status">
+					<input id="status" type="checkbox" value="1"/>
+					隐藏过期会议
+				</label>
+			</div>
+			<div class="form-group form-status col-wd-2">
+				<label class="" for="mycreate">
+					<input id="mycreate" type="checkbox" value="1"/>
+					由我发起的
+				</label>
+			</div>
+			<div class="form-group col-wd-6">
+				<label class="date-title" for="date">指定日期</label>
+				<div class="col-wd-4">
+					<input class="form-control" id="date" readonly="readonly"/>
+				</div>
+				<div class="form-buttons col-wd-2">
+					<button class="btn btn-warning clear-btn">全部</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="result-panel">
+		<div class="list-box" id="list-box"></div>
+		
+		<div class="pager-box"></div>
+	</div>
+	
+	<script type="text/html" id="meet-list.html">
+		<div class="meet-list S{{d.state}}" id="{{d.rowId}}" data-id="{{d.rowId}}">
+			<div class="title">
+				<div class="meet-subject">
+					<span class="head">会议主题：</span>
+					<span class="value">{{d.subject}}</span>
+				</div>
+				<div class="buttons" data-id="{{d.rowId}}">{{d.buttons}}</div>
+			</div>
+			<div class="line">
+				<div class="meet-boardroom">
+					<span class="head">会议室：</span>
+					<span class="value">{{d.boardroom}}</span>
+				</div>
+				<div class="meet-initiator">
+					<span class="head">会议发起人：</span>
+					<span class="value">{{d.initiator}}</span>
+				</div>
+				<div class="meet-conference">
+					<span class="head">会议记录人：</span>
+					<span class="value">{{d.conferenceClerk}}</span>
+				</div>
+			</div>
+			<div class="line">
+				<div class="meet-start">
+					<span class="head">会议开始时间：</span>
+					<span class="value">{{d.start}}</span>
+				</div>
+				<div class="meet-end">
+					<span class="head">会议结束时间：</span>
+					<span class="value">{{d.end}}</span>
+				</div>
+				<div class="meet-status">
+					<span class="head">状态：</span>
+					<span class="value s{{d.statusValue}}">{{d.status}}</span>
+				</div>
+			</div>
+		</div>
+	</script>
+	
+	<script type="text/template" id="list-btn.tpl">
+		<a class="btn btn-sm {{d.class}}" data-right="{{d.rightCode}}" href="javascript:;"><i class="icon {{d.icon}}"></i> {{d.title}}</a>
+	</script>
+	
+	<script type="text/template" id="status.tpl">
+		<i class="icon icon-dot-circle"></i> {{d.status}}
+	</script>
+	
+</body>
+</html>

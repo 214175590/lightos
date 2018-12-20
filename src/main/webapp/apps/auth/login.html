@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="renderer" content="webkit" />
+<title> 登录 </title>
+<link rel="stylesheet" href="../../content/css/auth-login.css" />
+<script id="seajsnode" type="text/javascript" src="../../loader.js" data-js="./js/login"></script>
+</head>
+<body>
+	<div id="container" class="back-box">
+		<div class="backimg"></div>
+		<canvas id="output" class="back-box"></canvas>
+		<div id="logo-box" class="logo-box"><img class="logo-img" src="../../content/images/lightos.png"> Light OS</div>
+		
+		<div id="login-body" class="login-body">
+			<h3>登录系统</h3>
+			<div class="login_fields">
+				<form id="" class="form">
+	    			<div class="login_fields__user">
+	      				<div class="icon-box">
+		        			<i class="icon icon-user"></i>
+			      		</div>
+			      		<input id="account" placeholder="用户名" type="text">
+			        	<div class="validation hidden">
+			          		<i class="icon icon-ok"></i>
+			        	</div>
+			    	</div>
+		    		<div class="login_fields__password">
+						<div class="icon-box">
+			        		<i class="icon icon-lock"></i>
+			      		</div>
+			      		<input id="password" placeholder="密码" type="password">
+				      	<div class="validation hidden">
+				        	<i class="icon icon-ok"></i>
+				      	</div>
+			    	</div>
+		    	</form>
+		    	<div class="login_fields__submit">
+		      		<button class="btn" id="login-btn">登录</button>
+		    	</div>
+			</div>
+		</div>
+		
+		<div class="wait-box">
+			<div class="msg">登录验证中</div>
+			<div class="spinner"></div>
+		</div>
+	</div>
+	
+</body>
+</html>

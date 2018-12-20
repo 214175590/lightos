@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<title> Dubbo接口列表 </title>
+<meta name="renderer" content="webkit" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<link rel="stylesheet" href="../../content/css/dubbo-interface.css" />
+
+<script id="seajsnode" type="text/javascript" src="../../loader.js" data-js="./js/interface-all"></script></head>
+<script type="text/javascript" src="../../lib/word/fileSaver.js"></script>
+<body>
+	
+	<div class="content" id="content">
+	
+	</div>
+		
+	<div class="word-box">
+    	<span class="btn btn-primary btn-word"> 导出Word </span>
+  	</div>
+  	
+  	<script type="text/html" id="content.html">
+  	<fieldset>
+	   	<legend><i class="icon-btn icon icon-angle-down" data-state="1"></i> {{d.className}}</legend>
+	   	{{d.items}}
+	</fieldset>
+  	</script>
+  	
+  	<script type="text/html" id="item.html">
+		<fieldset class="item">
+	   		<legend><i class="icon-btn icon icon-angle-down" data-state="1"></i> {{d.method}} {{d.methodNick ? ' -- ' + d.methodNick : ''}}<br></legend>
+	   		<fieldset class="sub">
+	       		<legend>接口描述</legend>
+		    	<div class="desc">{{d.desc}}</div>
+		  	</fieldset>
+		  	<fieldset class="sub">
+		       	<legend>接口入参</legend>
+		       	<table class="table table-bordered table-hover">
+		       		<thead>
+		       			<tr>
+		       				<th class="th1">参数名称</th>
+		       				<th class="th2">参数类型</th>
+		       				<th class="th3">长度</th>
+		       				<th class="th4">可选</th>
+		       				<th class="th5">描述</th>
+		       			</tr>
+		       		</thead>
+		       		<tbody id="inp-tbody">
+		       			{{d.inparam}}
+		       		</tbody>
+		       	</table>
+		    </fieldset>
+		    <fieldset class="sub">
+		       	<legend>接口返回</legend>
+		       	<table class="table table-bordered table-hover">
+		       		<thead>
+		       			<tr>
+		       				<th class="th7">字段名称</th>
+		       				<th class="th8">字段类型</th>
+		       				<th class="th9">描述</th>
+		       			</tr>
+		       		</thead>
+		       		<tbody id="out-tbody">
+						{{d.outparam}}
+		       		</tbody>
+		       	</table>
+		       </fieldset>
+		</fieldset>
+	</script>
+	
+	<script type="text/html" id="inp-tr.html">
+	<tr id="tr-inp-{{d.index}}" data-index="{{d.index}}">
+		<td>{{d.name}}</td>
+		<td>{{d.type}}</td>
+		<td>{{d.len}}</td>
+		<td>{{d.must}}</td>
+		<td>{{d.desc}}</td>
+	</tr>
+	</script>
+	
+	<script type="text/html" id="out-tr.html">
+	<tr id="tr-out-{{d.index}}" data-index="{{d.index}}">
+		<td>{{d.name}}</td>
+		<td>{{d.type}}</td>
+		<td>{{d.desc}}</td>
+	</tr>
+	</script>
+	
+</body>
+</html>

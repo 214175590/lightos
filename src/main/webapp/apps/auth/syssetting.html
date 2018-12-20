@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> 系统设置 </title>
+<link rel="stylesheet" href="../../content/css/syssetting.css" />
+<script id="seajsnode" type="text/javascript" src="../../loader.js" data-js="./js/syssetting"></script>
+</head>
+<body>
+	<div class="wrapper wrapper-content">
+		<form class="form-horizontal form-inline" id="form">
+			<div class="form-group col-wd-10">
+				<span class="col-wd-2">桌面宠物</span>
+				<span class="col-wd-6">
+					<select class="form-control chosen" name="clippy" id="clippy">
+						<option value="">随机选择</option>
+						<option value="disabled">不显示宠物</option>
+						<option value="Bonzi">Bonzi</option>
+						<option value="Clippy">Clippy</option>
+						<option value="F1">F1</option>
+						<option value="Genie">Genie</option>
+						<option value="Genius">Genius</option>
+						<option value="Links">Links</option>
+						<option value="Merlin">Merlin</option>
+						<option value="Peedy">Peedy</option>
+						<option value="Rocky">Rocky</option>
+						<option value="Rover">Rover</option>
+					</select>
+				</span>
+			</div>
+			<div class="form-group col-wd-10">
+				<span class="col-wd-2">桌面壁纸</span>
+				<span class="col-wd-8">
+					<label><input type="radio" name="wapper" value="" checked="checked"/> 加载时随机选择</label>
+					<label><input type="radio" name="wapper" value="static"/> 固定壁纸</label>
+					<label><input type="radio" name="wapper" value="auto" id="auto-wapper"/> 自动更换</label>
+					<label><input type="number" class="time" name="time" id="time" value="30" placeholder="间隔x分钟" disabled="disabled"/> 分</label>
+				</span>
+			</div>
+			<div class="col-wd-10">
+				<div class="alert"></div>
+			</div>
+		</form>
+		<div class="form-group form-buttons col-wd-10">
+			<button class="btn btn-success btn-submit"> 保存 </button>
+			<button class="btn btn-warning btn-cancel"> 取消 </button>
+		</div>
+	</div>
+	
+</body>
+</html>

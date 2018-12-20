@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<title> 新增/编辑Zookeeper服务节点 </title>
+<meta name="renderer" content="webkit" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<link rel="stylesheet" href="../../content/css/redis-addedit.css" />
+<script id="seajsnode" type="text/javascript" src="../../loader.js" data-js="./js/redis-addedit"></script></head>
+<body>
+	
+	<form class="form-horizontal" id="form">
+		<div class="form-group">
+			<input type="hidden" name="rowId" id="rowId" >
+		</div>
+		<div class="form-group">
+	    	<label for="ip" class="col-sm-2">Host <span class="red">*</span></label>
+	    	<div class="col-md-6 col-sm-10">
+	      		<input class="form-control" name="ip" id="ip" placeholder="Redis服务器地址">
+	    	</div>
+	  	</div>
+	  	<div class="form-group">
+	    	<label for="port" class="col-sm-2">Port <span class="red">*</span></label>
+	    	<div class="col-md-6 col-sm-10">
+	      		<input type="number" class="form-control" name="port" id="port" placeholder="Redis服务端口" value="6379">
+	    	</div>
+	  	</div>
+	  	<div class="form-group">
+	    	<label for="configPath" class="col-sm-2">Password</label>
+	    	<div class="col-md-6 col-sm-10">
+	      		<input class="form-control" name="password" id="password" placeholder="如果需要密码验证，请输入">
+	    	</div>
+	  	</div>
+	  	<div class="form-group">
+	    	<label for="desc" class="col-sm-2">Remark</label>
+	    	<div class="col-md-6 col-sm-10">
+	      		<input class="form-control" name="remark" id="remark" placeholder="备注">
+	    	</div>
+	  	</div>
+	  	<div class="form-group">
+	    	<div class="col-sm-12 buttons">
+	      		<span class="btn btn-primary btn-save"> 保 存 </span>
+	      		<span class="btn btn-cancel"> 关 闭 </span>
+	    	</div>
+	  	</div>
+	</form>
+	
+</body>
+</html>

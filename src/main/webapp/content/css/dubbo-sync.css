@@ -1,0 +1,141 @@
+@CHARSET "UTF-8";
+
+@IMPORT url("page-common.css");
+
+html, body {
+	overflow: hidden;
+    width: 100%;
+    height: 100%;
+}
+
+.r_content {
+    width: 100%;
+    height: 100%;
+}
+
+.server {
+    width: 270px;
+    float: left;
+    line-height: 30px;
+    height: 32px;
+}
+
+.forms {
+    width: 100%;
+    height: 60px;
+}
+
+.server .st1 {
+    float: left;
+    width: 50px;
+    text-align: right;
+}
+
+.server .sv1 {
+    float: left;
+    width: 210px;
+}
+
+.server .st2{
+    float: left;
+    width: 35px;
+    text-align: right;
+}
+
+.server .sv2 {
+    float: left;
+    width: 220px;
+}
+
+.s-text {
+    float: left;
+    width: 50px;
+    line-height: 30px;
+    height: 32px;
+    text-align: center;
+}
+
+.title {
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+}
+
+.func {
+    width: 100%;
+    text-align: center;
+    height: 250px;
+}
+
+.result {
+    height: 205px;
+    padding: 20px;
+}
+
+.result.hid {
+    visibility: hidden;
+}
+
+#loading-center-absolute {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    height: 20px;
+    width: 100px;
+    margin-top: -10px;
+    margin-left: -50px;
+}
+
+.object {
+    width: 20px;
+    height: 20px;
+    background-color: #f75b04;
+    -moz-border-radius: 50% 50% 50% 50%;
+    -webkit-border-radius: 50% 50% 50% 50%;
+    border-radius: 50% 50% 50% 50%;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    position: absolute;
+}
+
+#object_one{
+	-webkit-animation: object 2s linear infinite;
+	 animation: object 2s linear infinite;
+	 }
+#object_two{ 
+	-webkit-animation: object 2s linear infinite -.4s;
+	animation: object 2s linear infinite -.4s;
+	 }
+#object_three{ 
+	-webkit-animation: object 2s linear infinite -.8s; 
+	animation: object 2s linear infinite -.8s; 
+	}
+#object_four{ 
+	-webkit-animation: object 2s linear infinite -1.2s;
+	animation: object 2s linear infinite -1.2s; 
+	} 
+#object_five{ 
+	-webkit-animation: object 2s linear infinite -1.6s; 
+	animation: object 2s linear infinite -1.6s; 
+}
+	
+	
+@-webkit-keyframes object{
+  0% { left: 100px; top:0}
+  80% { left: 0; top:0;}
+  85% { left: 0; top: -20px; width: 20px; height: 20px;}
+  90% { width: 40px; height: 15px; }
+  95% { left: 100px; top: -20px; width: 20px; height: 20px;}
+  100% { left: 100px; top:0; }		
+}		
+
+@keyframes object{
+  0% { left: 100px; top:0}
+  80% { left: 0; top:0;}
+  85% { left: 0; top: -20px; width: 20px; height: 20px;}
+  90% { width: 40px; height: 15px; }
+  95% { left: 100px; top: -20px; width: 20px; height: 20px;}
+  100% { left: 100px; top:0; }
+}	
+	

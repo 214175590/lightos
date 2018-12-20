@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+<head>
+    <base href="./" />
+    <meta charset="gbk">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>lightos</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type="text/css">
+    	.title {
+    	    width: 100%;
+		    text-align: center;
+    	}
+    </style>
+</head>
+<body>
+	<div class="title" id="xt">页面加载中 .</div>
+	<script type="text/javascript">
+		var xt = document.getElementById('xt');
+		var s = ".";
+		setInterval(function(){
+			xt.innerText = '页面加载中 ' + (s += ".");
+		}, 600);
+		document.location.replace('http://192.168.20.32:8083/sapi/index.html');
+	</script>
+</body>
+</html>

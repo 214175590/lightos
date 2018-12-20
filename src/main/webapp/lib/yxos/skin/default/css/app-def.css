@@ -1,0 +1,609 @@
+@charset "utf-8";
+
+/* 桌面 */
+.yxos-desktop {
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	background-attachment: fixed;
+	right: 0px;
+    bottom: 0px;
+    top: 0px;
+    left: 0px;
+    
+	-webkit-transition: all ease .3s;
+    -moz-transition: all ease .3s;
+    -o-transition: all ease .3s;
+    -ms-transition: all ease .3s;
+    transition: all ease .3s;    
+	
+	/*-moz-background-size: 100% 100%;
+    -webkit-background-size: 100% 100%;
+    -o-background-size: 100% 100%;
+    -ms-background-size: 100% 100%;
+    background-size: 100% 100%;*/
+}
+
+.yxos-desktop-loading {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+    top: 0px;
+    left: 0px;
+    background-color: rgba(235, 235, 235, 0.9);
+    z-index: 9999;
+}
+
+/* 任务栏 */
+.yxos-taskbar {
+	width: 100%;
+	height: 32px;
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	z-index: 66666;
+}
+
+.yxos-taskbar .taskbar-tab {
+	width: calc(100% - 46px);
+	height: 31px;
+	/* margin-left: 37px; */
+	float: left;
+	background: rgba(0, 0, 0, 0.15);
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.yxos-taskbar .taskbar-func {
+    width: 10px;
+    height: 31px;
+    float: left;
+    cursor: pointer;
+}
+
+.yxos-taskbar .taskbar-func:hover {
+    background: rgba(212, 212, 212, 0.4);
+}
+
+.yxos-taskbar .window-start-menu {
+    width: 36px;
+    height: 32px;
+    float: left;
+    text-align: center;
+    line-height: 32px;
+    color: #ffffff;
+    cursor: pointer;
+    padding-right: 3px;
+}
+
+.yxos-taskbar .window-start-menu:hover {
+    background-color: rgba(210,210,210,.3)
+}
+
+.yxos-taskbar .window-start-menu.active {
+    background: rgba(0,0,0,0.3);
+    color: #79e4af;
+}
+
+/* 桌面图标 */
+.yxos-tasktop-icon {
+	position: absolute;
+	height: auto;
+	
+	border: 1px solid rgba(250, 250, 250, 0);
+}
+
+.yxos-tasktop-icon:hover {
+	border: 1px solid rgba(250, 250, 250, 0.3);
+}
+
+.yxos-tasktop-icon:active,
+.yxos-tasktop-icon.active,
+.yxos-tasktop-icon:focus {
+	background-color: rgba(250, 250, 250, 0.2);
+}
+
+.yxos-tasktop-icon.press .body .title {
+	text-shadow: 0px 0px 0px #fff, 0px 0px 2px #ff0000, 0px 0px 4px #ff0000;
+}
+
+.yxos-tasktop-icon .body {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	text-align: center;
+}
+
+.yxos-tasktop-icon .body .title {
+	font-size: 13px;
+	line-height: 13px;
+	margin-top: 2px;
+	color: #ffffff;
+	transition: all 0.3s;
+    text-shadow: 0px 0px 0px #fff, 0px 0px 2px #000, 0px 0px 4px #000;
+}
+    
+.yxos-tasktop-icon .body .title.blur {
+	overflow: hidden;
+	height: 13px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+ 
+
+
+/* 窗口 */
+.yxos-window {
+	position: absolute;
+    min-width: 100px;
+    min-height: 60px;
+    margin: auto;
+    border-color: rgba(0,0,0,0.2);
+    box-shadow: 0px 0px 20px rgba(0,140,255,0.46);
+    border: 1px solid #71b9f3;
+    -webkit-box-shadow: 0px 5px 20px rgba(0,0,0,0.6);
+    -moz-box-shadow: 0px 5px 20px rgba(0,0,0,0.6);
+    box-shadow: 0px 5px 20px rgba(0,0,0,0.6);
+    -webkit-transition: box-shadow 0.1s opacity 0.2s;
+    -moz-transition: box-shadow 0.1s opacity 0.2s;
+    -o-transition: box-shadow 0.1s opacity 0.2s;
+    -ms-transition: box-shadow 0.1s opacity 0.2s;
+    transition: box-shadow 0.1s opacity 0.2s;
+}
+
+.yxos-window .window table.aui_border, table.aui_dialog {
+    width: 100%;
+    border: 0;
+    margin: 0;
+    border-collapse: collapse;
+    max-width: 100%;
+    background-color: transparent;
+    border-spacing: 0;
+}
+
+.yxos-window .window {
+	width: 100%;
+	height: 100%;
+    text-align: left;
+    position: relative;
+}
+
+.yxos-window .move_cover {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+}
+
+.yxos-window .window .aui_titleBar {
+    position: relative;
+    height: 100%;
+    box-shadow: 0 0 1px #cccccc;
+}
+
+.yxos-window .window .aui_nw, 
+.yxos-window .window .aui_n, 
+.yxos-window .window .aui_ne, 
+.yxos-window .window .aui_w, 
+.yxos-window .window .aui_c, 
+.yxos-window .window .aui_e, 
+.yxos-window .window .aui_sw, 
+.yxos-window .window .aui_s, 
+.yxos-window .window .aui_se, 
+.yxos-window .window .aui_header, 
+.yxos-window .window .aui_tdIcon, 
+.yxos-window .window .aui_main, 
+.yxos-window .window .aui_footer {
+    padding: 0;
+}
+
+.yxos-window .window .aui_header .aui_min,
+.yxos-window .window .aui_header .aui_max,
+.yxos-window .window .aui_header .aui_close {
+	color: #888;
+    background-position: center center;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    height: 31px;
+    width: 40px;
+    line-height: 31px;
+    -webkit-transition: background 0.2s;
+    -moz-transition: background 0.2s;
+    -o-transition: background 0.2s;
+    -ms-transition: background 0.2s;
+    transition: background 0.2s;
+}
+
+
+.yxos-window .window .aui_header .aui_close {
+	position: absolute;
+    text-decoration: none;
+    outline: none;
+    cursor: pointer;
+    right: 0px;
+    border-top: none;
+    top: 0px;
+    font-family: ZenIcon;
+    font-size: 1.15em;
+    text-align: center;
+    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAOUlEQVQYlWNgYGD4D8TGDLiBMVQNgzErOwcuxRhy2BTjNABZAp8tCMWEFBGtkCirifIM0cFDVIADAOrvG43QTSHZAAAAAElFTkSuQmCC");
+}
+
+.yxos-window .window .aui_header .aui_close:hover {
+    background-color: #e81123;
+    color: #fff;
+    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAOklEQVQYV2P4/+//+f/fv6cw4AAgOZAaCAMEsCjGkMOmGKcByBL4bEFVjE8R0QqJspoozxAdPMQGOABXELkNcbMs5wAAAABJRU5ErkJggg==");
+}
+
+.yxos-window .window .aui_header .aui_max {
+	position: absolute;
+    text-decoration: none;
+    outline: none;
+    cursor: pointer;
+    right: 40px;    
+    top: 0px;
+    border-top: none;
+    font-family: ZenIcon;
+    font-size: 1.15em;
+    text-align: center;
+    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAGElEQVQYlWNgYGD4TySGEATAqELiFBLEAISgI91xKgmgAAAAAElFTkSuQmCC");
+}
+
+.yxos-window .window .aui_header .aui_max:hover {
+    color: #333;
+    background-color: #ddd;
+}
+
+.yxos-window .window .aui_header .aui_min {
+	position: absolute;
+    text-decoration: none;
+    outline: none;
+    cursor: pointer;
+    right: 80px;
+    top: 0px;
+    border-top: none;    
+    font-family: ZenIcon;
+    font-size: 1.15em;
+    text-align: center;
+    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAEUlEQVQYV2NgGGbgP5F40AMAIN0J96UZJscAAAAASUVORK5CYII=");
+}
+
+.yxos-window .window .aui_header .aui_min:hover {
+    color: #333;
+    background-color: #ddd;
+}
+
+.yxos-window .window .aui_header .aui_min.nomax {
+	right: 40px;
+}
+
+
+.yxos-window .window .aui_title {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 13px;
+    height: 31px;
+    line-height: 30px;
+    padding: 0 28px 0 10px;
+    background: #FFFFFF;
+    color: #666;
+    border-bottom: none;
+    cursor: move;
+}
+
+.yxos-window .window .aui_main {
+    font-size: 1.1em;
+    text-align: center;
+    background: #FFF;
+    min-width: 9em;
+    min-width: 0 \9;
+    visibility: auto;
+}
+
+.yxos-window .window .aui_content {
+    width: 100%;
+    height: 100%;
+    text-align: left;
+    color: #666;
+    border: none 0;
+}
+
+.yxos-window .window .aui_content.aui_state_full {
+    display: block;
+    width: 100%;
+    margin: 0;
+    padding: 0 !important;
+    height: 100%;
+}
+
+.yxos-window .window .resize-handle {
+    position: absolute;
+    z-index: 9999;
+    display: block;
+}
+
+.yxos-window .window .resize-top {
+    z-index: 2;
+    cursor: n-resize;
+    top: -3px;
+    left: 0px;
+    height: 7px;
+    width: 100%;
+}
+
+.yxos-window .window .resize-bottom {
+    z-index: 2;
+    cursor: s-resize;
+    bottom: -3px;
+    left: 0px;
+    height: 7px;
+    width: 100%;
+}
+
+.yxos-window .window .resize-right {
+    z-index: 2;
+    cursor: e-resize;
+    right: -3px;
+    top: 0px;
+    width: 7px;
+    height: 100%;
+}
+
+.yxos-window .window .resize-left {
+    z-index: 2;
+    cursor: w-resize;
+    left: -3px;
+    top: 0px;
+    width: 7px;
+    height: 100%;
+}
+
+.yxos-window .window .resize-bottom-right {
+	z-index: 2;
+    cursor: se-resize;
+    width: 18px;
+    height: 18px;
+    right: -7px;
+    bottom: -7px;
+    background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAABHSURBVHjajM7RCQAgCATQo8Edyxl0qgv7CArqFAQPHipIQnVEcEBUZtLdITeZGWtuoSe8UeUWqtxCx+kf2lCh9WMHVZ4CDADj7xFC8l50hgAAAABJRU5ErkJggg==') no-repeat;
+    opacity: 0.4;
+    filter: alpha(opacity=40);
+}
+
+.yxos-window .window .resize-bottom-left {
+	z-index: 2;
+    cursor: sw-resize;
+    width: 15px;
+    height: 15px;
+    left: -7px;
+    bottom: -7px;
+}
+
+.yxos-window .window .resize-top-left {
+	z-index: 2;
+    cursor: nw-resize;
+    width: 15px;
+    height: 15px;
+    left: -7px;
+    top: -7px;
+}
+
+.yxos-window .window .resize-top-right {
+	z-index: 2;
+    cursor: ne-resize;
+    width: 15px;
+    height: 15px;
+    right: -5px;
+    top: -7px;
+}
+
+.yxos-window .window .aui_mark {
+	position: absolute;
+    width: 100%;
+    height: calc(100% - 32px);;    
+    left: 0;
+    top: 32px;
+    z-index: 1;
+    background-color: #ffffff;
+}
+
+.yxos-window .window .aui_mark.cover {
+	background-color: rgba(255, 255, 255, 0);
+}
+
+.yxos-window .window .aui_mark.load, 
+.yxos-window .window .aui_mark.load.cover {
+	background-color: rgba(255, 255, 255, 1);
+}
+
+.yxos-window .window .win-icon {
+    width: 16px;
+    height: 16px;
+    vertical-align: sub;
+    margin-right: 2px;
+}
+
+
+/* 右键菜单 */
+.yxos-context-menu {
+	margin: 0;
+    margin-left: 4px;
+    min-width: 160px;
+    max-width: 300px;
+    font-size: 1em;
+    display: none;
+    position: absolute;
+    list-style-type: none;
+    padding: 5px 0px;
+    border: 1px solid #ccc \9;
+    background: #fff;
+    -webkit-box-shadow: 0 10px 80px rgba(0,0,0,0.4);
+    -moz-box-shadow: 0 10px 80px rgba(0,0,0,0.4);
+    box-shadow: 4px 5px 10px rgba(0,0,0,0.2);
+    border-radius: 0;
+    border: 1px solid rgba(0,0,0,0.1);
+    background-clip: padding-box;
+}
+
+.yxos-context-menu .yxos-context-menu-item {
+	display: block;
+    cursor: pointer;
+    white-space: nowrap;
+    clear: both;
+    line-height: 25px;
+    height: 25px;
+    width: 100%;
+    position: relative;
+    border: none;
+    padding: 0 15px 0 12px;
+    color: #222;
+    font-size: 13px;
+    opacity: 1;
+    float: none;
+    font-weight: normal;
+    -webkit-transition: background-color .1s;
+    -moz-transition: background-color .1s;
+    -o-transition: background-color .1s;
+    -ms-transition: background-color .1s;
+    transition: background-color .1s;
+}
+
+.yxos-context-menu .yxos-context-menu-item[disabled],
+.yxos-context-menu .yxos-context-menu-item.disabled {
+    color: #cccccc;
+}
+
+.yxos-context-menu .yxos-context-submenu {
+    display: none;
+    z-index: 1;
+}
+
+.yxos-context-menu .yxos-has-submenu:after {
+    content: "\e6e1";
+    font-family: ZenIcon;
+    display: inline-block;
+    float: right;
+    margin-right: 0px;
+    right: 10px;
+    position: absolute;
+}
+
+.yxos-context-menu .yxos-context-menu-item:hover .yxos-context-submenu {
+	display: inline-block !important;
+    left: calc(100% - 5px);
+    top: -2px;
+}
+
+.yxos-context-menu .yxos-context-menu-item:hover {
+    background-color: #dddddd;
+}
+
+.yxos-context-menu .yxos-context-menu-item > .icon {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+}
+
+
+/* 任务栏窗口句柄 */
+.yxos-window-handle {
+    width: 40px;
+    height: 31px;
+    line-height: 32px;
+    text-align: center;
+    display: inline-block;
+    margin-right: 5px;
+    float: left;
+}
+
+.yxos-window-handle:hover {
+    background-color: rgba(50, 50, 50, 0.1);
+}
+
+.yxos-window-handle.active {
+    background-color: rgba(206, 206, 206, 0.3);
+    border-bottom: 1px solid #c7e0ff
+}
+
+.yxos-window-handle:hover {
+    background-color: rgba(165, 165, 165, 0.32);
+    border-bottom: 1px solid #efaae3;
+}
+
+/** 开始菜单 */
+.yxos-start-menu {
+    position: absolute;
+    width: 260px;
+    height: 260px;
+    z-index: 69990;
+    background: rgba(0, 0, 0, 0.4);
+    box-shadow: 1px -1px 4px 1px #797979;
+    bottom: 31px;
+    left: 0;
+    border-radius: 0 300px 0 0;
+}
+
+.yxos-start-menu-item {
+    width: 85px;
+    height: 85px;
+    line-height: 80px;
+    border-radius: 50%;
+    background: #000000;
+    color: #ffffff;
+    position: absolute;
+    text-align: center;
+    cursor: pointer;
+    box-shadow: 0 0 10px 2px #000000;
+    -webkit-animation: 'menu-frame' 3s infinite linear;
+}
+
+.yxos-start-menu-item:hover {
+    background: #e04242;
+    box-shadow: 0 0 10px 2px #ff0000;
+    -webkit-animation: 'menu-frame-active' 3s infinite linear;
+}
+
+.yxos-start-menu-item:nth-child(1) {
+    top: 20px;
+    left: 10px;
+}
+
+.yxos-start-menu-item:nth-child(2) {
+    top: 75px;
+    left: 100px;
+}
+
+.yxos-start-menu-item:nth-child(3) {
+    top: 165px;
+    left: 155px;
+}
+
+.yxos-start-menu-item:nth-child(4) {
+    top: 165px;
+    left: 10px;
+}
+
+@-webkit-keyframes 'menu-frame' {
+   0% {
+      box-shadow: 0 0 1px 1px #000000;
+   }
+   50% {
+      box-shadow: 0 0 10px 3px #c3c3c3;
+   }
+   100% {
+      box-shadow: 0 0 1px 1px #000000;
+   }
+}
+
+@-webkit-keyframes 'menu-frame-active' {
+   0% {
+      box-shadow: 0 0 1px 1px #ff0000;
+   }
+   50% {
+      box-shadow: 0 0 10px 3px #a20202;
+   }
+   100% {
+      box-shadow: 0 0 1px 1px #ff0000;
+   }
+}

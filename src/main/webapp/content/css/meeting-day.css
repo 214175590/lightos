@@ -1,0 +1,245 @@
+@CHARSET "UTF-8";
+
+@IMPORT url("page-common.css");
+
+.result-panel {
+    padding: 5px 0;
+    float: left;
+    width: calc(100% - 1px);
+    border: 1px solid #eeeeee;
+    margin-bottom: 20px;
+}
+
+.date-title {
+    float: left;
+    margin-right: 15px;
+}
+
+.title-line {
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    border-bottom: 1px solid #eeeeee;
+}
+
+.time-panel {
+    width: 160px;
+    float: left;
+    border-right: 1px dashed #e5e5e5;
+}
+
+.time-item {
+    width: 100%;
+    height: 50px;
+    float: left;
+    margin-top: 1px;
+    border-bottom: 1px solid #eeeeee;
+}
+
+.time-name {
+    width: 99px;
+    float: left;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+}
+
+.time-box {
+    width: 60px;
+    float: left;
+    height: 50px;
+}
+
+.time {
+    width: 100%;
+    float: left;
+    height: 25px;
+    line-height: 25px;
+    color: #de0f0f;
+}
+
+
+.title-desc {
+    width: 160px;
+    float: left;
+    text-align: center;
+    border-right: 1px dashed #e5e5e5;
+}
+
+.title-room-box {
+    float: left;
+    width: calc(100% - 160px);
+    height: 30px;
+    text-align: center;
+}
+
+.room-name {
+    width: 140px;
+    float: left;
+    height: 100%;
+    font-size: 12px;
+    border-right: 1px dashed #e5e5e5;
+}
+
+.meet-panel {
+    float: left;
+    width: calc(100% - 160px);
+    height: 100%;
+    text-align: center;
+}
+
+.meet-none {
+    width: 100%;
+    float: left;
+    height: 25px;
+    line-height: 24px;
+    padding: 2px;
+    color: #bbbbbb;
+    cursor: pointer;
+}
+
+.meet-box {
+    width: 140px;
+    float: left;
+    border-right: 1px dashed #e5e5e5;
+}
+
+.meet {
+	color: #ffffff;
+	cursor: pointer;
+}
+
+.row-1 {height: 25px !important;}
+.row-2 {height: 51px !important;}
+.row-3 {height: 76px !important;}
+.row-4 {height: 102px !important;}
+.row-5 {height: 127px !important;}
+.row-6 {height: 153px !important;}
+.row-7 {height: 178px !important;}
+.row-8 {height: 204px !important;}
+.row-9 {height: 229px !important;}
+.row-10 {height: 255px !important;}
+.row-11 {height: 280px !important;}
+.row-12 {height: 306px !important;}
+.row-13 {height: 331px !important;}
+.row-14 {height: 357px !important;}
+.row-15 {height: 382px !important;}
+.row-16 {height: 408px !important;}
+
+
+.theme1 {
+	background: #7658bf;
+}
+.theme1:hover {
+	background: #8b6bd8;
+	box-shadow: 2px 2px 4px #42228f;
+}
+
+.theme2 {
+	background: #58bf5f;
+}
+.theme2:hover {
+	background: #4cd356;
+	box-shadow: 2px 2px 4px #16781d;
+}
+
+.theme3 {
+	background: #5895bf;
+}
+.theme3:hover {
+	background: #51a0d6;
+	box-shadow: 2px 2px 4px #225f89;
+}
+
+.theme4 {
+	background: #bf5867;
+}
+.theme4:hover {
+	background: #e27383;
+	box-shadow: 2px 2px 4px #8f1e2e;
+}
+
+.theme5 {
+	background: #c4c51c;
+}
+.theme5:hover {
+	background: #d1d23c;
+	box-shadow: 2px 2px 4px #909116;
+}
+
+.theme6 {
+	background: #58bbbf;
+}
+.theme6:hover {
+	background: #77cacd;
+	box-shadow: 2px 2px 4px #1a797c;
+}
+
+.time-item:nth-child(2n) {
+    background: #e5e5e5;
+}
+
+.time:nth-child(2n) {
+    color: #0011f7;
+}
+
+.meet-none:nth-child(2n) {
+    margin-top: 1px;
+}
+
+.meet-none.select {
+    background: #428bca;
+    color: #ffffff;
+}
+
+.context-menu {
+	margin: 0;
+	margin-left: 4px;
+	width: 120px;
+	border-radius: 6px;
+	height: 84px;
+	font-size: 1em;
+	display: none;
+	position: absolute;
+	list-style-type: none;
+	padding: 5px 0px;
+	border: 1px solid #ccc \9;
+	background: #fff;
+	-webkit-box-shadow: 0 10px 80px rgba(0,0,0,0.4);
+	-moz-box-shadow: 0 10px 80px rgba(0,0,0,0.4);
+	box-shadow: 4px 5px 10px rgba(0,0,0,0.2);
+	/* border-radius: 0; */
+	border: 1px solid rgba(0,0,0,0.1);
+	background-clip: padding-box;
+}
+
+.context-menu-item {
+	display: block;
+	cursor: pointer;
+	white-space: nowrap;
+	clear: both;
+	line-height: 25px;
+	height: 25px;
+	width: 100%;
+	position: relative;
+	border: none;
+	color: #222;
+	font-size: 13px;
+	opacity: 1;
+	float: none;
+	font-weight: normal;
+	text-align: center;
+	-webkit-transition: background-color .1s;
+	-moz-transition: background-color .1s;
+	-o-transition: background-color .1s;
+	-ms-transition: background-color .1s;
+	transition: background-color .1s;
+}
+
+.context-menu:hover {
+    background: #ca425c;
+}
+
+.context-menu:hover .context-menu-item {
+    color: #ffffff;
+}

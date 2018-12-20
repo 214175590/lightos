@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<title> 代码生成 </title>
+<meta name="renderer" content="webkit" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<link rel="stylesheet" href="../../content/css/code-gener.css" />
+<link rel="stylesheet" href="../../../lib/prettify/prettify.css" />
+<script id="seajsnode" type="text/javascript" src="../../loader.js" data-js="./js/code-sql.js"></script>
+<script type="text/javascript" src="../../lib/word/fileSaver.js"></script>
+</head>
+<body class="sql">
+	<div class="page-head">
+		<textarea id="sql" class="form-control" placeholder="sql建表语句"></textarea>
+		<pre class="prettyprint hidden" id="sql-view"></pre>
+	</div>
+	<div class="page-func">
+		<div class="form-group">
+			<input class="form-control" id="appName" value="" placeholder="应用名称，例如：lightos"/>
+			<input class="form-control" id="moduleName" value="" placeholder="模块名称，例如：system"/>
+			<button class="btn btn-success btn-create">生成</button>
+		</div>
+	</div>
+	<div class="page-body" id="java-code">
+		
+	</div>
+	
+<script type="text/html" id="attr-list.tpl">    /**
+     * {comment}{notnull}{length}
+     */{id}{auto}
+    @Column(name="{name}")
+    private {javaType} {attrName}{def};
+</script>
+
+<script type="text/html" id="getset-list.tpl">    /**
+     * 获取 {comment} 的值
+     * @return {javaType}
+     */
+    public {javaType} get{AttrName}() {
+        return {attrName};
+    }
+    
+    /**
+     * 设置 {comment} 的值
+     * @param {javaType} {attrName}
+     */
+    public void set{AttrName}({javaType} {attrName}) {
+        this.{attrName} = {attrName};
+    }
+</script>
+
+<script type="text/html" id="tostring.tpl">        sb.append("; {attrName}=" + ({attrName} == null ? "null" : {attrName}.toString()));</script>
+	
+<script type="text/html" id="entity.java">package com.echinacoop.{app}.domain.{module};
+
+import java.io.Serializable;
+import java.util.Objects;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;{importDate}{importTimestamp}
+
+/**
+ * {EntityComment}
+ * @Time {Time}
+ * @Auto Generated
+ */
+@SuppressWarnings("serial")
+@Entity
+@Table(name="{tableName}")
+public class {EntityName} implements java.io.Serializable {
+
+{attr_list}
+{attr_getset_list}
+    public String toString() {
+        StringBuffer sb = new StringBuffer();
+        sb.append(this.getClass().getName());
+{attr_tostring_list}
+        return sb.toString();
+    }
+}
+</script>
+
+<script type="text/html" id="repository.java">package com.echinacoop.{app}.repository.{module};
+
+import java.util.List;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.echinacoop.{app}.domain.{module}.{EntityName};
+
+/**
+ * {EntityComment}
+ * 此类为自动生成，继承了JpaRepository类，已经拥有基本的增删改成操作
+ * @Time {Time}
+ * @Auto Generated
+ */
+public interface {EntityName}Repository extends JpaRepository&lt;{EntityName}, Long&gt; {
+    
+    // TODO 自行扩展
+    /**
+     * 根据条件查询单个记录
+     * 请自行修改如下方法
+     */
+    //{EntityName} findOneBy..(String attrName);
+    
+    /**
+     * 根据条件查询多条记录
+     * 请自行修改如下方法
+     */
+    //List&lt;{EntityName}&gt; findBy..(String attrName);
+    
+    /**
+     * 根据条件查询多条记录，SQL + 分页查询  + 总记录数
+     * 请自行修改如下方法
+     */
+    /*
+    @Query(
+    	value = "select distinct entity from {EntityName} entity where .... ",
+    	countQuery = "select count(entity) from {EntityName}"
+    )
+    Page&lt;{EntityName}&gt; findBy.......(Pageable able);
+    */
+    
+}
+</script>
+
+<script type="text/html" id="service.java">package com.echinacoop.{app}.service.{module};
+
+import java.util.List;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.echinacoop.{app}.domain.base.Argument;
+import com.echinacoop.{app}.domain.{module}.{EntityName};
+import com.echinacoop.{app}.repository.{module}.{EntityName}Repository;
+
+/**
+ * {EntityComment}
+ * @Time {Time}
+ * @Auto Generated
+ */
+@Service
+@Transactional
+public class {EntityName}Service {
+    private final static Logger logger = LoggerFactory.getLogger({EntityName}Service.class);
+    
+    @Autowired
+    private {EntityName}Repository repository;
+
+    @Transactional(readOnly = true)
+    public Argument getOne(Argument arg) {
+        try {
+            Optional&lt;{EntityName}&gt; optional = repository.findById(arg.getRowId());
+            if(optional.isPresent()){
+                arg.success().setObj(optional.get());
+            } else {
+                arg.fail();
+            }
+        } catch(Exception e){
+            logger.error("查询{EntityName}数据失败：" + e.getMessage(), e);
+            arg.fail("查询数据失败");
+        }
+        return arg;
+    }
+    
+    @Transactional(readOnly = true)
+    public Argument findOne(Argument arg) {
+        try {
+            {EntityName} entity = ({EntityName}) arg.getObj();
+            // TODO 请自行修改
+            {EntityName} obj = entity; //repository.findOneBy...(entity);
+            if(obj != null){
+                arg.success().setObj(obj);
+            } else {
+                arg.fail();
+            }
+        } catch(Exception e){
+            logger.error("查询{EntityName}数据失败：" + e.getMessage(), e);
+            arg.fail("查询数据失败");
+        }
+        return arg;
+    }
+
+    @Transactional(readOnly = true)
+    public Argument findAll(Argument arg) {
+        try {
+            List&lt;{EntityName}&gt; dataList = repository.findAll();
+            if(dataList != null){
+                arg.success().setDataToRtn(dataList);
+            } else {
+                arg.fail();
+            }
+        } catch(Exception e){
+            logger.error("查询{EntityName}数据失败：" + e.getMessage(), e);
+            arg.fail("查询数据失败");
+        }
+        return arg;
+    }
+    
+    @Transactional(readOnly = true)
+    public Argument findAllForPager(Argument arg) {
+        try {
+            Pageable pageRequest = arg.getPageable(); 
+            Page&lt;{EntityName}&gt; page = repository.findAll(pageRequest);
+            if(page != null){
+                arg.success().setPage(page);
+            } else {
+                arg.fail();
+            }
+        } catch(Exception e){
+            logger.error("查询{EntityName}数据失败：" + e.getMessage(), e);
+            arg.fail("查询数据失败");
+        }
+        return arg;
+    }
+    
+    public Argument save(Argument arg) {
+        try {
+            {EntityName} entity = ({EntityName}) arg.getObj();
+            entity = repository.save(entity);
+            if(entity != null){
+                arg.success().setObj(entity);
+            } else {
+                arg.fail();
+            }
+        } catch(Exception e){
+            logger.error("新增{EntityName}数据失败：" + e.getMessage(), e);
+            arg.fail("新增数据失败");
+            throw new RuntimeException("新增{EntityName}数据失败");
+        }
+        return arg;
+    }
+    
+    public Argument update(Argument arg) {
+        try {
+            {EntityName} entity = ({EntityName}) arg.getObj();
+            entity = repository.saveAndFlush(entity);
+            if(entity != null){
+                arg.success().setObj(entity);
+            } else {
+                arg.fail();
+            }
+        } catch(Exception e){
+            logger.error("修改{EntityName}数据失败：" + e.getMessage(), e);
+            arg.fail("修改数据失败");
+            throw new RuntimeException("修改{EntityName}数据失败");
+        }
+        return arg;
+    }
+    
+    public Argument delete(Argument arg) {
+        try {
+            repository.delete(arg.getRowId());
+            arg.success();
+        } catch(Exception e){
+            logger.error("删除{EntityName}数据失败：" + e.getMessage(), e);
+            arg.fail("删除数据失败");
+            throw new RuntimeException("删除{EntityName}数据失败");
+        }
+        return arg;
+    }
+    
+    public Argument saveBatch(Argument arg) {
+        try {
+            List&lt;{EntityName}&gt; entityList = (List&lt;{EntityName}&gt;) arg.getObj();
+            entityList = repository.save(entityList);
+            if(entityList != null){
+                arg.success().setDataToRtn(entityList);
+            } else {
+                arg.fail();
+            }
+        } catch(Exception e){
+            logger.error("批量插入{EntityName}数据失败：" + e.getMessage(), e);
+            arg.fail("批量插入数据失败");
+            throw new RuntimeException("批量插入{EntityName}数据失败");
+        }
+        return arg;
+    }
+    
+    public Argument deleteBatch(Argument arg) {
+        try {
+            List&lt;{EntityName}&gt; entityList = (List&lt;{EntityName}&gt;) arg.getObj();
+            repository.deleteInBatch(entityList);
+            arg.success();
+        } catch(Exception e){
+            logger.error("批量删除{EntityName}数据失败：" + e.getMessage(), e);
+            arg.fail("批量删除数据失败");
+            throw new RuntimeException("批量删除{EntityName}数据失败");
+        }
+        return arg;
+    }
+
+}
+</script>
+
+<script type="text/html" id="controller.java">package com.echinacoop.{app}.web.rest.{module};
+
+import javax.annotation.Resource;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.alibaba.fastjson.JSONObject;
+import com.echinacoop.{app}.domain.base.Argument;
+import com.echinacoop.{app}.domain.base.Response;
+import com.echinacoop.{app}.domain.{module}.{EntityName};
+import com.echinacoop.{app}.service.{module}.{EntityName}Service;
+import com.echinacoop.{app}.web.rest.BaseController;
+
+/**
+ * {EntityComment}
+ * @Time {Time}
+ * @Auto Generated
+ */
+@RestController
+@RequestMapping("/{entityName}")
+public class {EntityName}Resource extends BaseController {
+    private final static Logger logger = LoggerFactory.getLogger({EntityName}Resource.class);
+    
+    @Resource
+    {EntityName}Service {entityName}Service;
+    
+    @RequestMapping("/loadList")
+    public Response loadList(@RequestParam String jsonValue) {
+		Response res = new Response();
+        JSONObject value = parseJsonValue(jsonValue);
+        // TODO
+        return res;
+    }
+    
+    @RequestMapping("/get")
+    public Response get(@RequestParam String jsonValue) {
+        Response res = new Response();
+        JSONObject value = parseJsonValue(jsonValue);
+        // TODO
+        return res;
+    }
+    
+    @PostMapping("/add")
+    public Response add(@RequestParam String jsonValue) {
+        Response res = new Response();
+        JSONObject value = parseJsonValue(jsonValue);
+        // TODO
+        return res;
+    }
+    
+    @PostMapping("/edit")
+    public Response edit(@RequestParam String jsonValue) {
+        Response res = new Response();
+        JSONObject value = parseJsonValue(jsonValue);
+        // TODO
+        return res;
+    }
+    
+    @PostMapping("/del")
+    public Response del(@RequestParam String jsonValue) {
+        Response res = new Response();
+        JSONObject value = parseJsonValue(jsonValue);
+        // TODO
+        return res;
+    }
+
+}
+</script>
+
+<script type="text/html" id="content.tpl">
+<div class="title-box">
+    <span class="title">{title}</span>
+	<span class="btn btn-primary btn-export">下载</span>
+</div>
+<pre class="prettyprint codeview">
+{html}
+</pre>
+</script>
+</body>
+</html>

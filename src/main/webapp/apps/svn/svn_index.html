@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<title> svn代码监控 </title>
+<meta name="renderer" content="webkit" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<link rel="stylesheet" href="../../content/css/svn-index.css" />
+<script id="seajsnode" type="text/javascript" src="../../loader.js" data-js="./js/index"></script></head>
+<body class="frame">
+	<div class="top-box">
+		<div class="btn-box">
+			<span class="btn btn-success btn-load">加载</span>
+		</div>
+		<form class="form-horizontal">
+			<div class="form-group">
+		    	<label for="project" class="col-sm-1">项目</label>
+		    	<div class="col-md-4 col-sm-4">
+		      		<select class="chosen form-control" name="project" id="project" data-placeholder="选择一个项目">
+		      			<option value="">选择一个项目</option>
+		      			<option value="add">添加项目</option>
+		      		</select>
+		    	</div>
+		    	<label for="author" class="col-sm-1">用户</label>
+		    	<div class="col-md-2 col-sm-2">
+		      		<input type="text" class="form-control" id="author" placeholder="用户/作者">
+		    	</div>
+		    	<label for="version" class="col-sm-1">版本</label>
+		    	<div class="col-md-2 col-sm-2">
+		      		<input type="text" class="form-control" id="version" placeholder="指定版本">
+		    	</div>
+		  	</div>
+		  	<div class="form-group">
+		  		<label for="filename" class="col-sm-1">文件</label>
+		    	<div class="col-md-4 col-sm-4">
+		      		<input type="text" class="form-control" id="filename" placeholder="输入文件名称关键词">
+		    	</div>
+		    	<label for="startDate" class="col-sm-1">起始</label>
+		    	<div class="col-md-2 col-sm-2">
+		      		<input type="text" class="form-control form-date" id="startDate" name="startDate" placeholder="选择起始日期" readonly="readonly">
+		    	</div>
+		    	<label for="endDate" class="col-sm-1">结束</label>
+		    	<div class="col-md-2 col-sm-2">
+		      		<input type="text" class="form-control form-date" id="endDate" name="endDate" placeholder="选择结束日期" readonly="readonly">
+		    	</div>
+		  	</div>
+		</form>
+	</div>
+	<div class="version-box">
+		<table class="table datatable" data-sortable="true" data-checkable="false" data-flexHeadDrag="true">
+			<thead>
+				<tr>
+					<th>版本</th>
+					<th>操作</th>
+					<th>作者</th>
+					<th>日期</th>
+					<th>信息</th>
+				</tr>
+			</thead>
+			<tbody id="data-body1">
+			</tbody>
+		</table>
+	</div>
+	<div class="desc-box">
+		<textarea class="desc-view form-control" readonly="readonly"></textarea>
+	</div>
+	<div class="files-box">
+		<table class="table datatable" data-sortable="true" data-checkable="false" data-flexHeadDrag="true">
+			<thead>
+				<tr>
+					<th class="td1">路径</th>
+					<th class="td2">操作</th>
+					<th class="td3">从路径复制</th>
+					<th class="td4">版本</th>
+				</tr>
+			</thead>
+			<tbody id="data-body2">
+			</tbody>
+		</table>
+	</div>
+	
+	<script type="text/html" id="ops.html">
+		<option value="{{d.value}}" {{d.selected ? 'selected' : ''}}>{{d.name}}</option>
+	</script>
+	
+	<script type="text/template" id="list-tr1.tpl">
+		<tr class="trow {{d.trclass}}" data-id="{{d.version}}">
+			<td>{{d.version}}</td>
+			<td>{{d.btns}}</td>
+			<td>{{d.author}}</td>
+			<td>{{d.date}}</td>
+			<td>{{d.desc}}</td>
+		</tr>
+	</script>
+	
+	<script type="text/template" id="list-tr2.tpl">
+		<tr class="trow tr-{{d.type}} file-{{d.kind}}">
+			{{# if(d.kind === 'file' && d.type !== 'D'){ }}
+			<td class="td1"><a class="file-item" data-id="{{d.path}}" data-ver="{{d.ver}}" data-mode="{{d.type}}" data-kind="{{d.kind}}" href="javascript:void(0);">{{d.pathtext}}</a></td>
+			{{#  } else { }}
+			<td class="td1">{{d.path}}</td>
+			{{#  } }}
+			<td class="td2">{{d.state}}</td>
+			<td class="td3">{{d.copyFormPath}}</td>
+			<td class="td4">{{d.version}}</td>
+		</tr>
+	</script>
+	
+	<script type="text/html" id="edit.html">
+		<i class="icon icon-edit" title="修改"></i>
+	</script>
+	<script type="text/html" id="add.html">
+		<i class="icon icon-plus-sign" title="新增"></i>
+	</script>
+	<script type="text/html" id="del.html">
+		<i class="icon icon-minus-sign" title="删除"></i>
+	</script>
+	<script type="text/html" id="place.html"><span class="orange">{{d.text}}</span></script>
+</body>
+</html>

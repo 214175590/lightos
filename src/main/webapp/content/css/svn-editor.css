@@ -1,0 +1,58 @@
+@CHARSET "UTF-8";
+
+@import "./page-common.css";
+
+header {
+	height: 42px;
+	width: 100%;
+	background: #3d3d3d;
+    padding: 6px 10px;
+}
+
+header .icon-btn {
+    color: #8c8c8c;
+    margin-left: 10px;
+}
+
+header .icon-btn i {
+    font-size: 16px;
+}
+
+header .icon-btn:hover {
+    color: #38b03f;
+    box-shadow: 4px 3px 6px #0462f7;
+}
+
+header .logo-text {
+    color: #202020;
+    background: #545454;
+    box-shadow: 2px 2px 1px 1px #202020;
+    padding: 0 2px;
+}
+
+header .icon-btn.disabled {
+    color: #292929;
+}
+
+header .icon-btn.disabled:hover,
+header .icon-btn.disabled:focus {
+    color: #292929;
+    box-shadow: none;
+}
+
+/* body部分 */
+.main-body {
+	width: 100%;
+	height: calc(100% - 42px);
+	overflow: auto;
+}
+
+.CodeMirror-vscrollbar {
+    background: #3d3d3d;
+}
+
+.headbox {
+	width: 300px;
+	margin-left: 5px;
+	display: inline-block;
+}

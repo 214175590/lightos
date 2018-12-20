@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<title> Zookeeper服务节点 </title>
+<meta name="renderer" content="webkit" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<link rel="stylesheet" href="../../content/css/zk-nodes.css" />
+<script id="seajsnode" type="text/javascript" src="../../loader.js" data-js="./js/nodes"></script></head>
+<body>
+	<div class="r_content">
+		<div class="head">
+			<span class="title">节点管理</span>
+			<span class="search-box"><input type="text" id="words" class="form-control" placeholder="输入关键词按‘Enter’键快速定位节点，连续按下‘Enter’可切换下一个匹配节点"></span>
+			<span class="buttons">
+				<button class="btn btn-primary btn-reload">重新加载</button>
+			</span>
+		</div>
+		<div class="outer">
+			<div class="origanization_left">
+				<ul class="ztree" id="ztree"></ul>
+			</div>
+			<div class="origanization_right" id="childrenNode">
+			</div>
+		</div>
+		<div id="rMenu" class="select">
+			<ul class="oSbox">
+				<li id="m_add">增加节点</li>
+				<li id="m_edit">修改节点</li>
+				<li id="m_del">删除节点</li>
+			</ul>
+		</div>
+	</div>
+	<div class="node-info hidden"></div>
+	
+	<script type="text/html" id="addnode.html">
+	<div class="formbox">
+		<div class="form-group">
+			<label for="">节点名称</label>
+			<input class="form-control" id="node_name" value="{{d.name}}"/>
+		</div>
+		<div class="form-group">
+			<label for="">节点数据</label>
+			<input class="form-control" id="node_data" value="{{d.data}}"/>
+		</div>
+	</div>
+	</script>
+	
+	<script type="text/html" id="info.html">
+	<table class="table table-auto">
+		<tr>
+	    	<td class="left-td">节点名称：</td>
+	    	<td class="right-td">{{d.id}}</td>
+	  	</tr>
+	  	<tr>
+	    	<td class="left-td">节点路径：</td>
+	    	<td class="right-td">{{d.fullId}}</td>
+	  	</tr>
+	  	<tr>
+	    	<td class="left-td">节点数据：</td>
+	    	<td class="right-td nd">{{d.data}}</td>
+	  	</tr>
+	  	<tr>
+	    	<td class="left-td">节点模型：</td>
+	    	<td class="right-td">{{d.nodeModel}}</td>
+	  	</div>
+	</form>
+	</script>
+	
+</body>
+</html>

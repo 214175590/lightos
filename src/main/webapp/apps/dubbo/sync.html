@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<title> Zookeeper服务节点 </title>
+<meta name="renderer" content="webkit" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<link rel="stylesheet" href="../../content/css/dubbo-sync.css" />
+<script id="seajsnode" type="text/javascript" src="../../loader.js" data-js="./js/sync"></script>
+</head>
+<body>
+	<div class="r_content">
+		<div class="title">
+			<span class="jar hidden"></span>
+			<span class="dubbo hidden"></span>
+			测试数据同步
+		</div>
+		<div class="forms">
+			<div class="server">
+				<span class="st1">从：</span>
+				<span class="sv1"></span>
+			</div>
+			<div class="s-text">同步</div>
+			<div class="server">
+				<span class="st2">到：</span>
+				<span class="sv2"></span>
+			</div>
+		</div>
+		<div class="func">
+			<div class="result hid">
+				<div class="text">数据同步中...</div>
+				<div id="loading-center-absolute">
+					<div class="object" id="object_one"></div>
+					<div class="object" id="object_two" style="left:20px;"></div>
+					<div class="object" id="object_three" style="left:40px;"></div>
+					<div class="object" id="object_four" style="left:60px;"></div>
+					<div class="object" id="object_five" style="left:80px;"></div>
+				</div>
+			</div>
+			<div class="but">
+				<span class="btn btn-primary btn-sync">开始同步</span>
+			</div>
+		</div>
+	</div>
+	
+	<script type="text/html" id="select1.html">
+		<select class="chosen-select form-control" id="server1">
+		{{d.option}}
+		</select>
+	</script>
+	
+	<script type="text/html" id="select2.html">
+		<select class="chosen-select form-control" id="server2">
+		{{d.option}}
+		</select>
+	</script>
+	
+	<script type="text/html" id="option.html">
+		<option value="{{d.name}}">{{d.name}}</option>
+	</script>
+	
+</body>
+</html>

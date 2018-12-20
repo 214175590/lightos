@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> 预约新的会议 </title>
+<link rel="stylesheet" href="../../../content/css/meeting-add.css" />
+<script id="seajsnode" type="text/javascript" src="../../../loader.js" data-js="./js/meeting-add"></script>
+</head>
+<body>
+	<div class="wrapper wrapper-content">
+		<div id="treePanel" class="tree-panel ztree hidden">
+			<div id="treeBody" class="tree-body">人员加载中...</div>
+			<div class="tree-foot">
+				<button class="btn btn-success btn-ok"> 确 定 </button>
+				<button class="btn btn-warning btn-no"> 取 消 </button>
+			</div>
+		</div>
+	
+		<form class="form-horizontal form-inline" id="form">
+			<div class="form-group col-wd-10">
+				<label class="col-wd-2" for="meetSubject">会议主题<span class="must">*</span></label>
+				<div class="col-wd-7">
+					<input class="form-control col-wd-8" id="meetSubject" name="meetSubject" placeholder="填写本次会议主题"/>
+				</div>
+			</div>
+			<div class="form-group col-wd-10">
+				<label class="col-wd-2" for="meetDate">会议日期<span class="must">*</span></label>
+				<div class="col-wd-7">
+					<input class="form-control col-wd-8" id="meetDate" name="meetDate" readonly="readonly" placeholder="点击选择会议日期"/>
+				</div>
+			</div>
+			<div class="form-group col-wd-10">
+				<label class="col-wd-2" for="boardroom">会议时间<span class="must">*</span></label>
+				<div class="col-wd-7">
+					<div class="time-box col-wd-4">
+						<label class="col-wd-3" for="meetStart">开始时间<span class="must">*</span></label>
+						<select id="meetStart" name="meetStart" class="chosen-select form-control col-wd-65" data-placeholder="选择会议开始时间">
+							<option value="0800">08:00</option>
+							<option value="0830">08:30</option>
+							<option value="0900">09:00</option>
+							<option value="0930">09:30</option>
+							<option value="1000">10:00</option>
+							<option value="1030">10:30</option>
+							<option value="1100">11:00</option>
+							<option value="1130">11:30</option>
+							<option value="1200">12:00</option>
+							<option value="1230">12:30</option>
+							<option value="1300">13:00</option>
+							<option value="1330">13:30</option>
+							<option value="1400">14:00</option>
+							<option value="1430">14:30</option>
+							<option value="1500">15:00</option>
+							<option value="1530">15:30</option>
+							<option value="1600">16:00</option>
+							<option value="1630">16:30</option>
+							<option value="1700">17:00</option>
+							<option value="1730">17:30</option>
+							<option value="1800">18:00</option>
+							<option value="1830">18:30</option>
+							<option value="1900">19:00</option>
+							<option value="1930">19:30</option>
+							<option value="2000">20:00</option>
+							<option value="2030">20:30</option>
+							<option value="2100">21:00</option>
+							<option value="2130">21:30</option>
+							<option value="2200">22:00</option>
+							<option value="2230">22:30</option>
+							<option value="2300">23:00</option>
+							<option value="2330">23:30</option>
+							<option value="2400">00:00</option>
+						</select>
+					</div>
+					<div class="time-box col-wd-4">
+						<label class="col-wd-3" for="meetEnd">结束时间<span class="must">*</span></label>
+						<select id="meetEnd" name="meetEnd" class="chosen-select form-control col-wd-65" data-placeholder="选择会议结束">
+							<option value="0800">08:00</option>
+							<option value="0830">08:30</option>
+							<option value="0900">09:00</option>
+							<option value="0930">09:30</option>
+							<option value="1000">10:00</option>
+							<option value="1030">10:30</option>
+							<option value="1100">11:00</option>
+							<option value="1130">11:30</option>
+							<option value="1200">12:00</option>
+							<option value="1230">12:30</option>
+							<option value="1300">13:00</option>
+							<option value="1330">13:30</option>
+							<option value="1400">14:00</option>
+							<option value="1430">14:30</option>
+							<option value="1500">15:00</option>
+							<option value="1530">15:30</option>
+							<option value="1600">16:00</option>
+							<option value="1630">16:30</option>
+							<option value="1700">17:00</option>
+							<option value="1730">17:30</option>
+							<option value="1800">18:00</option>
+							<option value="1830">18:30</option>
+							<option value="1900">19:00</option>
+							<option value="1930">19:30</option>
+							<option value="2000">20:00</option>
+							<option value="2030">20:30</option>
+							<option value="2100">21:00</option>
+							<option value="2130">21:30</option>
+							<option value="2200">22:00</option>
+							<option value="2230">22:30</option>
+							<option value="2300">23:00</option>
+							<option value="2330">23:30</option>
+							<option value="2400">00:00</option>
+						</select>
+					</div>
+				</div>
+			</div>
+			<div class="form-group col-wd-10">
+				<label class="col-wd-2" for="boardroom">会议室<span class="must">*</span></label>
+				<div class="col-wd-7">
+					<select id="boardroom" name="boardroom" data-placeholder="选择会议室" class="chosen-select form-control col-wd-8">
+					</select>
+				</div>
+			</div>
+			<div class="form-group col-wd-10">
+				<label class="col-wd-2" for="member">与会人员<span class="must">*</span></label>
+				<div class="col-wd-7 member-box">
+					<select id="member" name="member" data-placeholder="添加与会成员" class="chosen-select form-control col-wd-8" multiple="">
+					</select>
+				</div>
+			</div>
+			<div class="form-group col-wd-10">
+				<label class="col-wd-2" for="conferenceClerk">会议记录员</label>
+				<div class="col-wd-7 conferenceClerk-box">
+					<select id="conferenceClerk" name="conferenceClerk" data-placeholder="指定会议记录员" class="chosen-select form-control col-wd-8">
+						<option value="">会议发起人</option>
+					</select>
+				</div>
+			</div>
+			<div class="form-group col-wd-10">
+				<label class="col-wd-2" for="meetRemark">会议说明</label>
+				<div class="col-wd-7">
+					<textarea class="form-control col-wd-8" id="meetRemark" name="meetRemark" placeholder="会议说明"></textarea>
+				</div>
+			</div>
+			<div class="form-group col-wd-10">
+				<label class="col-wd-2" for="mailNotification1">邮件通知</label>
+				<div class="col-wd-7">
+					<label for="mailNotification1">
+						<input type="radio" id="mailNotification1" name="mailNotification" value="1" checked="checked"> 是
+					</label>
+					<label for="mailNotification2">
+						<input type="radio" id="mailNotification2" name="mailNotification" value="2"> 否
+					</label>
+				</div>
+			</div>
+			<div class="form-group col-wd-10">
+				<label class="col-wd-2" for="mailReminder1">会前提醒</label>
+				<div class="col-wd-7">
+					<label for="mailReminder1">
+						<input type="radio" id="mailReminder1" name="mailReminder" value="1" checked="checked"> 是
+					</label>
+					<label for="mailReminder2">
+						<input type="radio" id="mailReminder2" name="mailReminder" value="2"> 否
+					</label>
+				</div>
+			</div>
+			<div class="col-wd-10">
+				<div class="alert"></div>
+			</div>
+		</form>
+		<div class="form-group form-buttons col-wd-10">
+			<button class="btn btn-success btn-submit" disabled="disabled"> 提交预约 </button>
+		</div>
+	</div>
+	
+	<script type="text/html" id="table.tpl">
+		<div class="">
+			<table class="table">
+				<thead>
+				<tr>
+					<th>会议主题</th>
+					<th>发起人</th>
+					<th>时间段</th>
+				</tr>
+				</thead>
+				<tbody id="data-body">
+					{{d.trlist}}
+				</tbody>
+			</table>
+		</div>
+	</script>
+	
+	<script type="text/html" id="tr.tpl">
+		<tr>
+			<td>{{d.subject}}</td>
+			<td>{{d.user}}</td>
+			<td>{{d.time}}</td>
+		</tr>
+	</script>
+	
+</body>
+</html>

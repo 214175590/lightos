@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<title> Dubbo接口说明 </title>
+<meta name="renderer" content="webkit" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<link rel="stylesheet" href="../../content/css/dubbo-interface.css" />
+<script id="seajsnode" type="text/javascript" src="../../loader.js" data-js="./js/interface"></script></head>
+<body>
+	
+	<form class="form-horizontal" id="form">
+		<fieldset>
+        	<legend>接口说明</legend>
+			<input type="hidden" name="rowId" id="rowId" >
+			<div class="form-group">
+	    		<label for="ip" class="col-sm-1">接口类</label>
+		    	<div class="col-sm-5 text" id="className"></div>
+	    		<label for="ip" class="col-sm-1">方法名</label>
+		    	<div class="col-sm-5 text" id="method"></div>
+		  	</div>
+		  	<div class="form-group">
+		  		<label for="port" class="col-sm-1">接口名称 <span class="must">*</span></label>
+		    	<div class="col-sm-5">
+		      		<input class="form-control" name="methodNick" id="methodNick" placeholder="接口中文名称"/>
+		    	</div>
+		    	<label for="port" class="col-sm-1">接口描述</label>
+		    	<div class="col-sm-5">
+		      		<textarea class="form-control" name="remark" id="remark" placeholder="接口描述、说明"></textarea>
+		    	</div>
+		  	</div>
+		</fieldset>
+		<fieldset>
+        	<legend>接口入参</legend>
+        	<table class="table table-bordered table-hover">
+        		<thead>
+        			<tr>
+        				<th class="th1">参数名称</th>
+        				<th class="th2">参数类型</th>
+        				<th class="th3">长度</th>
+        				<th class="th4">可选</th>
+        				<th class="th5">描述</th>
+        				<th class="th6"></th>
+        			</tr>
+        		</thead>
+        		<tbody id="inp-tbody">
+        			<tr id="tr-inp-1" data-index="1">
+        				<td><input class="form-input" name="inp_name" id="inp_name1" placeholder="参数字段名"></td>
+        				<td><select class="chosen" name="inp_type" id="inp_type1">
+        					<option value="String">String</option>
+        					<option value="Integer">Integer</option>
+        					<option value="Double">Double</option>
+        					<option value="Float">Float</option>
+        					<option value="Date">Date</option>
+        					<option value="Boolean">Boolean</option>
+        					<option value="Object">Object</option>
+        				</select></td>
+        				<td><input class="form-input" name="inp_len" id="inp_len1" placeholder="长度限制" title="长度限制，0代表无限制" value="0"></td>
+        				<td><select class="chosen" name="inp_must" id="inp_must1">
+        					<option value="n">必需</option>
+        					<option value="y">可选</option>
+        				</select></td>
+        				<td><input class="form-input" name="inp_desc" id="inp_desc1" placeholder="参数描述"></td>
+        				<td><div class="trash-box"><i class="icon icon-trash btn-del-line" data-index="1" data-type="inp"></i></div></td>
+        			</tr>
+        		</tbody>
+        	</table>
+        	<div class="line-box">
+        		<span class="btn btn-sm btn-primary btn-inp-addline">新增参数</span>
+        	</div>
+        </fieldset>
+        
+        <fieldset>
+        	<legend>接口返回</legend>
+        	<table class="table table-bordered table-hover">
+        		<thead>
+        			<tr>
+        				<th class="th7">字段名称</th>
+        				<th class="th8">字段类型</th>
+        				<th class="th9">描述</th>
+        				<th class="th6"></th>
+        			</tr>
+        		</thead>
+        		<tbody id="out-tbody">
+        			<tr id="tr-out-1" data-index="1">
+        				<td><input class="form-input" name="out_name" id="out_name1" placeholder="字段名"></td>
+        				<td><select class="chosen" name="out_type" id="out_type1">
+        					<option value="String">String</option>
+        					<option value="Integer">Integer</option>
+        					<option value="Double">Double</option>
+        					<option value="Float">Float</option>
+        					<option value="Date">Date</option>
+        					<option value="Boolean">Boolean</option>
+        					<option value="Object">Object</option>
+        				</select></td>
+        				<td><input class="form-input" name="out_desc" id="out_desc1" placeholder="字段描述"></td>
+        				<td><div class="trash-box"><i class="icon icon-trash btn-del-line" data-index="1" data-type="out"></i></div></td>
+        			</tr>
+        		</tbody>
+        	</table>
+        	<div class="line-box">
+        		<span class="btn btn-sm btn-primary btn-out-addline">新增字段</span>
+        	</div>
+		  	
+        </fieldset>
+		
+		<div class="form-group">
+	    	<div class="col-sm-12 buttons">
+	      		<span class="btn btn-primary btn-save"> 保 存 </span>
+	    	</div>
+	  	</div>
+	</form>
+	
+	<script type="text/html" id="inp-tr.html">
+	<tr id="tr-inp-{{d.index}}" data-index="{{d.index}}">
+		<td><input class="form-input" name="inp_name" id="inp_name{{d.index}}" placeholder="参数字段名" value="{{d.name}}"></td>
+		<td><select class="chosen" name="inp_type" id="inp_type{{d.index}}">
+        		<option value="String" {{d.type == 'String' ? 'selected' : ''}}>String</option>
+        		<option value="Integer" {{d.type == 'Integer' ? 'selected' : ''}}>Integer</option>
+        		<option value="Double" {{d.type == 'Double' ? 'selected' : ''}}>Double</option>
+        		<option value="Float" {{d.type == 'Float' ? 'selected' : ''}}>Float</option>
+        		<option value="Date" {{d.type == 'Date' ? 'selected' : ''}}>Date</option>
+        		<option value="Boolean" {{d.type == 'Boolean' ? 'selected' : ''}}>Boolean</option>
+        		<option value="Object" {{d.type == 'Object' ? 'selected' : ''}}>Object</option>
+        	</select></td>
+		<td><input class="form-input" name="inp_len" id="inp_len{{d.index}}" placeholder="长度限制" value="{{d.len}}"></td>
+		<td><select class="chosen" name="inp_must" id="inp_must{{d.index}}">
+        		<option value="n" {{d.must == 'n' ? 'selected' : ''}}>必需</option>
+        		<option value="y" {{d.must == 'y' ? 'selected' : ''}}>可选</option>
+        	</select></td>
+		<td><input class="form-input" name="inp_desc" id="inp_desc{{d.index}}" placeholder="参数描述" value="{{d.desc}}"></td>
+		<td><div class="trash-box"><i class="icon icon-trash btn-del-line" data-index="{{d.index}}" data-type="inp"></i></div></td>
+	</tr>
+	</script>
+	
+	<script type="text/html" id="out-tr.html">
+	<tr id="tr-out-{{d.index}}" data-index="{{d.index}}">
+		<td><input class="form-input" name="out_name" id="out_name{{d.index}}" placeholder="字段名" value="{{d.name}}"></td>
+		<td><select class="chosen" name="out_type" id="out_type{{d.index}}">
+			<option value="String" {{d.type == 'String' ? 'selected' : ''}}>String</option>
+        	<option value="Integer" {{d.type == 'Integer' ? 'selected' : ''}}>Integer</option>
+        	<option value="Double" {{d.type == 'Double' ? 'selected' : ''}}>Double</option>
+        	<option value="Float" {{d.type == 'Float' ? 'selected' : ''}}>Float</option>
+        	<option value="Date" {{d.type == 'Date' ? 'selected' : ''}}>Date</option>
+        	<option value="Boolean" {{d.type == 'Boolean' ? 'selected' : ''}}>Boolean</option>
+        	<option value="Object" {{d.type == 'Object' ? 'selected' : ''}}>Object</option>
+		</select></td>
+		<td><input class="form-input" name="out_desc" id="out_desc{{d.index}}" placeholder="字段描述" value="{{d.desc}}"></td>
+		<td><div class="trash-box"><i class="icon icon-trash btn-del-line" data-index="{{d.index}}" data-type="out"></i></div></td>
+	</tr>
+	</script>
+	
+</body>
+</html>

@@ -1,0 +1,42 @@
+@CHARSET "UTF-8";
+
+@IMPORT url("page-common.css");
+
+html, body {
+	overflow: hidden;
+}
+
+.loginFrame {
+	overflow: hidden;
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: 80000;
+	display: none;
+}
+
+.loginFrame.cirle {
+	-webkit-animation: circle .3s infinite linear; /*匀速 循环*/
+	-ws-animation: circle .3s infinite linear; /*匀速 循环*/
+	-moz-animation: circle .3s infinite linear; /*匀速 循环*/
+	animation: circle .3s infinite linear; /*匀速 循环*/
+}
+
+@-webkit-keyframes circle{
+	0%{ transform: rotate(0deg); }
+	100%{ transform: rotate(-360deg); }
+}
+
+div#user-panel {    
+    position: absolute;
+    z-index: 0;
+    background: rgba(220,220,220,0.2);
+    height: 25px;
+    line-height: 24px;
+    width: 200px;
+    left: calc(100%/2 - 100px);
+    top: 0px;
+    border-radius: 0 0 5px 5px;
+    text-align: center;
+    color: #abc0e2;
+}

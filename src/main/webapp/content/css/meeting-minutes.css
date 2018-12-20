@@ -1,0 +1,61 @@
+@CHARSET "UTF-8";
+
+@IMPORT url("page-common.css");
+
+.wrapper-content {
+    padding: 20px 0;
+}
+
+.form-group {
+	margin-bottom: 10px !important;
+}
+
+.form-group > label {
+	margin-right: 50px !important;
+}
+
+.form-buttons {
+    text-align: center;
+    margin-bottom: 20px !important;
+}
+
+.form-buttons .btn {
+    width: 90px;
+    margin-right: 15px;
+}
+
+.form-group > div {
+    padding-top: 6px;
+}
+
+.member-item {
+    float: left;
+    margin-right: 5px;
+    border: 1px solid #b9c9d6;
+    padding: 2px 5px;
+    border-radius: 3px;
+}
+
+.member-item .icon-user {
+    color: red;
+}
+
+.member-item .icon-pencil {
+    color: blue;
+}
+
+.icon.s1 {
+    color: blue;
+}
+
+.icon.s2  {
+    color: red;
+}
+
+.icon.s3  {
+    color: green;
+}
+
+#meetMinutes {
+	min-height: 390px;
+}

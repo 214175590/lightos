@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> 修改密码 </title>
+<link rel="stylesheet" href="../../content/css/auth-modify-pwd.css" />
+<script id="seajsnode" type="text/javascript" src="../../loader.js" data-js="./js/modify-pwd"></script>
+</head>
+<body>
+	<div class="wrapper wrapper-content">
+		<form class="form-horizontal form-inline" id="form">
+			<div class="form-group col-wd-10">
+				<label class="col-wd-3" for="meetSubject">旧密码<span class="red">*</span></label>
+				<div class="col-wd-5">
+					<input type="password" class="form-control col-wd-9" id="oldpwd" name="oldpwd" placeholder="请输入旧密码"/>
+				</div>
+			</div>
+			<div class="form-group col-wd-10">
+				<label class="col-wd-3" for="conferenceClerk">新密码</label>
+				<div class="col-wd-5 conferenceClerk-box">
+					<input type="password" class="form-control col-wd-9" id="newpwd" name="newpwd" placeholder="请输入新的密码"/>
+				</div>
+			</div>
+			<div class="form-group col-wd-10">
+				<label class="col-wd-3" for="meetRemark">重复新密码</label>
+				<div class="col-wd-5">
+					<input type="password" class="form-control col-wd-9" id="renewpwd" name="renewpwd" placeholder="请重复输入新密码"/>
+				</div>
+			</div>
+			<div class="col-wd-10">
+				<div class="alert"></div>
+			</div>
+		</form>
+		<div class="form-group form-buttons col-wd-10">
+			<button class="btn btn-success btn-submit"> 提交修改 </button>
+			<button class="btn btn-warning btn-cancel"> 取消 </button>
+		</div>
+	</div>
+	
+</body>
+</html>

@@ -1,0 +1,14 @@
+version: '2'
+services:
+    lightos-app:
+        image: lightos
+        environment:
+            - SPRING_PROFILES_ACTIVE=prod,swagger
+            - SPRING_DATASOURCE_URL=jdbc:mysql://lightos-mysql:3306/lightos?useUnicode=true&characterEncoding=utf8&useSSL=false
+            - JHIPSTER_SLEEP=10 # gives time for the database to boot before the application
+        ports:
+            - 8080:8080
+    lightos-mysql:
+        extends:
+            file: mysql.yml
+            service: lightos-mysql

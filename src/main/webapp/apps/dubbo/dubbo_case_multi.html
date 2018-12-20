@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<title> 新增Dubbo测试用例 </title>
+<meta name="renderer" content="webkit" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<link rel="stylesheet" href="../../content/css/dubbo-case.css" />
+<script id="seajsnode" type="text/javascript" src="../../loader.js" data-js="./js/dubbo-case-multi"></script></head>
+<body>
+	<div class="left">
+		<form class="form-horizontal" id="form">
+			<div class="form-group">
+				<input type="hidden" name="rowId" id="rowId" >
+			</div>
+			<div class="form-group">
+		    	<label for="ip" class="col-sm-2">名称前缀 <span class="red">*</span></label>
+		    	<div class="col-md-6 col-sm-4">
+		      		<input class="form-control" name="name" id="name" placeholder="测试用例名称前缀">
+		    	</div>
+		    	<label for="ip" class="col-sm-2">分隔符号 <span class="red">*</span></label>
+		    	<div class="col-md-6 col-sm-4">
+		      		<input class="form-control" name="splitchar" id="splitchar" placeholder="多用例参数分隔符号，例如：------" value="------">
+		    	</div>
+		  	</div>
+		  	<div class="form-group">
+		    	<label for="port" class="col-sm-2">多个参数 <span class="red">*</span></label>
+		    	<div class="col-md-6 col-sm-10">
+		      		<textarea class="form-control" name="param" id="param" placeholder="测试用例参数，支持动态参数，多个参数以上面定义的分隔符号分隔"></textarea>
+		    	</div>
+		  	</div>
+		  	<div class="form-group">
+		    	<div class="col-sm-12 buttons">
+		      		<span class="btn btn-primary btn-save-multi"> 保 存 </span>
+		      		<span class="btn btn-cancel"> 关 闭 </span>
+		    	</div>
+		  	</div>
+		</form>
+	</div>
+	<div class="right">
+		<div class="topbox">
+			<label for="ip" class="col-sm-4">自增序号 <span class="red">*</span></label>
+	    	<div class="col-md-6 col-sm-6">
+	      		<input class="form-control" name="index" id="index" placeholder="自动从此需要+1自增" value="1">
+	    	</div>
+		</div>
+		<div class="itembox"></div>
+	</div>
+	
+	<script type="text/html" id="item.html">
+	<div class="item-box">
+		<div class="title"><input class="pi" value="{{d.name}}"/></div>
+		<div class="content">
+			<textarea class="pv">{{d.param}}</textarea>
+		</div>
+	</div>
+	</script>
+</body>
+</html>

@@ -1,0 +1,179 @@
+@CHARSET "UTF-8";
+
+@IMPORT url("page-common.css");
+
+html, body {
+	overflow: hidden;
+    width: 100%;
+    height: 100%;
+}
+
+.r_content {
+    width: 100%;
+    height: 100%;
+}
+
+.r_left {
+    width: 300px;
+    height: 100%;
+    float: left;
+    padding: 5px 10px;
+}
+
+.r_left .lists {
+    width: 100%;
+    height: calc(100% - 48px);
+    overflow: auto;
+    border: 1px solid #dddddd;
+    padding: 5px;
+}
+
+.r_left .lists .item {
+    width: 100%;
+    height: 30px;
+    line-height: 23px;
+    background: #ffffff;
+    border: 3px solid #e4e4e4;
+    box-shadow: 3px 3px 4px #989898;
+    border-radius: 5px;
+    padding: 0 10px;
+    cursor: pointer;
+    position: relative;
+    margin-bottom: 5px;
+}
+
+.r_left .lists .item.active {
+    /* background: #055851; */
+    color: #e0914b;
+}
+
+.r_left .lists .item.loaded {
+    border: 3px solid #00ff1c;
+    box-shadow: 3px 3px 4px #006f4e;
+}
+
+.r_left .lists .item:hover {
+    /* background: #166ae0; */
+    color: #166ae0;
+}
+
+.r_left .lists .item.success {
+    background: #269c18;
+    color: #ffffff;
+}
+
+.r_left .lists .item.failed {
+    background: #bd0000;
+    color: #ffffff;
+}
+
+.r_left .lists .item.success.error {
+    background: red;
+    background: linear-gradient(to right, #05cc4b, red);
+    background: -webkit-linear-gradient(0deg, #05cc4b, red);
+}
+
+.r_left .lists .item .icon-arrow-right {
+    visibility: hidden;
+}
+
+.r_left .lists .item.active .icon-arrow-right {
+    visibility: visible;
+}
+
+.ft {
+    position: absolute;
+    right: 2px;
+    top: 2px;
+}
+
+.ft .icon {
+    color: #bf4a4a !important;
+    font-size: 18px;
+    margin-left: 15px;
+}
+
+.ft .icon:hover {
+    color: #ff0000 !important;
+}
+
+.r_right {
+    width: calc(100% - 302px);
+    height: 100%;
+    float: left;
+    padding: 10px;
+}
+
+.class-list {
+    width: 100%;
+    height: 400px;
+    overflow: auto;
+    border: 1px solid #d1dae8;
+    box-shadow: 2px 2px 3px #d1dae8;
+}
+
+.jar-call , .method-call {
+    width: 100%;
+    height: calc(100% - 122px);
+    float: left;
+    padding: 10px 0;
+}
+
+.param{
+    width: 100%;
+    height: calc(50% - 38px) !important;
+    float: left;
+}
+
+.result {
+    width: 100%;
+    height: calc(50% - 27px) !important;
+    float: left;
+}
+
+.buttons {
+    width: 100%;
+    height: 71px;
+    float: left;
+    text-align: left;
+}
+
+.buttons .btn {
+    margin-top: 20px;
+    margin-right: 20px;
+}
+
+.other {
+    width: calc(100% - 200px);
+    height: 30px;
+    float: left;
+    line-height: 30px;
+}
+
+.forms {
+    width: 100%;
+    height: 40px;
+}
+
+.status {
+    width: 100%;
+    float: left;
+    height: 120px;
+    line-height: 30px;
+}
+
+.title {
+    width: 100%;
+    height: 44px;
+    font-size: 20px;
+    line-height: 42px;
+    position: relative;
+}
+
+.st0,.st1,.st2,.st3,.st4 {
+    width: 100px;
+    display: inline-block;
+    text-align: right;
+    font-weight: 700;
+    color: #2d489a;
+}

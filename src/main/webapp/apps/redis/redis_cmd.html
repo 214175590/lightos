@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<title> Zookeeper服务4字命令 </title>
+<meta name="renderer" content="webkit" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<link rel="stylesheet" href="../../content/css/redis-cmd.css" />
+<script id="seajsnode" type="text/javascript" src="../../loader.js" data-js="./js/redis-cmd"></script></head>
+<body>
+	<div class="main">
+		<ul class="cmd-ul">
+			<li class="item active">info</li>
+			<li class="item">client</li>
+			<li class="item">data</li>
+		</ul>
+		<div class="result">
+		</div>
+		<div class="node-info hidden"></div>
+	</div>
+	
+	<script type="text/html" id="data.html">
+		<div class="search">
+			<input type="text" class="form-control" id="keyword" value="{{d.word}}" placeholder="输入Key或者Value相关关键词进行查找"/>
+			&nbsp;&nbsp;&nbsp;<span class="btn btn-primary btn-search"> 搜 索 </span>
+			&nbsp;&nbsp;&nbsp;<span class="btn btn-success btn-add"> 新增数据 </span>
+		</div>
+		<div class="box">{{d.tables}}</div>
+		<div class="pager">
+			{{d.pager}}
+		</div>
+	</script>
+	
+	<script type="text/html" id="tr.html">
+		<tr class="{{d.trclass}}">
+	    	<td class="left-td">{{d.name}}<div class="edit" data-key="{{d.key}}"><i class="icon icon-edit"></i><i class="icon icon-trash"></i></div></td>
+	    	<td class="right-td">{{d.value}}</td>
+	  	</tr>
+	</script>
+	
+	<script type="text/html" id="p.html">
+		<div class="p prev" title="上一页"><i class="icon icon-angle-left"></i></div>
+		<div class="p next" title="上一页"><i class="icon icon-angle-right"></i></div>
+		<div class="p info">当前第{{d.index}}页，共{{d.total}}页，共{{d.count}}条记录.</div>
+	</script>
+	
+	<script type="text/html" id="form.html">
+	<div class="form-group">
+		Key：<input type="text" class="form-control newk" value="{{d.key}}" placeholder="输入Key"/>
+	</div>
+	<div class="form-group">
+		Value：<textarea type="text" class="form-control newv" placeholder="输入Value">{{d.value}}</textarea>
+	</div>
+	<div class="form-group">
+		<label><input type="checkbox" class="isappend"/> Append</label>
+	</div>
+	</script>
+</body>
+</html>

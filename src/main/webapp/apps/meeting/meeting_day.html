@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> 会议室 </title>
+<link rel="stylesheet" href="../../../content/css/meeting-day.css" />
+<script id="seajsnode" type="text/javascript" src="../../../loader.js" data-js="./js/meeting-day"></script>
+</head>
+<body>
+	<ul class="context-menu" id="cmenu" >
+		<li class="context-menu-item nomal start-menu"></li>
+		<li class="context-menu-item nomal add-menu"><i class="icon icon-window"></i> 预约会议</li>
+		<li class="context-menu-item nomal end-menu"></li>
+	</ul>
+	<div class="search-panel">
+		<div class="form-group col-wd-10">
+			<div class="form-group col-wd-6">
+				<label class="date-title" for="date">指定日期</label>
+				<div class="col-wd-4">
+					<input class="form-control" id="meetDate" name="meetDate" readonly="readonly"/>
+				</div>
+			</div>
+			<div class="form-group col-wd-4"><i class="icon icon-circle-arrow-right"></i> 鼠标按下后上下拖动，可快速选择时间段预订会议</div>
+		</div>
+	</div>
+	<div class="result-panel">
+		
+		<div class="title-line">
+			<div class="title-desc">时间 \ 会议室</div>
+			<div class="title-room-box">
+			</div>
+		</div>
+		<div class="time-panel noselect">
+			<div class="time-item">
+				<div class="time-name">上午08点</div>
+				<div class="time-box">
+					<div class="time">08:00</div>
+					<div class="time">08:30</div>
+				</div>
+			</div>
+			<div class="time-item">
+				<div class="time-name">上午09点</div>
+				<div class="time-box">
+					<div class="time">09:00</div>
+					<div class="time">09:30</div>
+				</div>
+			</div>
+			<div class="time-item">
+				<div class="time-name">上午10点</div>
+				<div class="time-box">
+					<div class="time">10:00</div>
+					<div class="time">10:30</div>
+				</div>
+			</div>
+			<div class="time-item">
+				<div class="time-name">上午11点</div>
+				<div class="time-box">
+					<div class="time">11:00</div>
+					<div class="time">11:30</div>
+				</div>
+			</div>
+			<div class="time-item">
+				<div class="time-name">上午12点</div>
+				<div class="time-box">
+					<div class="time">12:00</div>
+					<div class="time">12:30</div>
+				</div>
+			</div>
+			<div class="time-item">
+				<div class="time-name">下午13点</div>
+				<div class="time-box">
+					<div class="time">13:00</div>
+					<div class="time">13:30</div>
+				</div>
+			</div>
+			<div class="time-item">
+				<div class="time-name">下午14点</div>
+				<div class="time-box">
+					<div class="time">14:00</div>
+					<div class="time">14:30</div>
+				</div>
+			</div>
+			<div class="time-item">
+				<div class="time-name">下午15点</div>
+				<div class="time-box">
+					<div class="time">15:00</div>
+					<div class="time">15:30</div>
+				</div>
+			</div>
+			<div class="time-item">
+				<div class="time-name">下午16点</div>
+				<div class="time-box">
+					<div class="time">16:00</div>
+					<div class="time">16:30</div>
+				</div>
+			</div>
+			<div class="time-item">
+				<div class="time-name">下午17点</div>
+				<div class="time-box">
+					<div class="time">17:00</div>
+					<div class="time">17:30</div>
+				</div>
+			</div>
+			<div class="time-item">
+				<div class="time-name">下午18点</div>
+				<div class="time-box">
+					<div class="time">18:00</div>
+					<div class="time">18:30</div>
+				</div>
+			</div>
+			<div class="time-item">
+				<div class="time-name">晚上19点</div>
+				<div class="time-box">
+					<div class="time">19:00</div>
+					<div class="time">19:30</div>
+				</div>
+			</div>
+			<div class="time-item">
+				<div class="time-name">晚上20点</div>
+				<div class="time-box">
+					<div class="time">20:00</div>
+					<div class="time">20:30</div>
+				</div>
+			</div>
+			<div class="time-item">
+				<div class="time-name">晚上21点</div>
+				<div class="time-box">
+					<div class="time">21:00</div>
+					<div class="time">21:30</div>
+				</div>
+			</div>
+			<div class="time-item">
+				<div class="time-name">晚上22点</div>
+				<div class="time-box">
+					<div class="time">22:00</div>
+					<div class="time">22:30</div>
+				</div>
+			</div>
+			<div class="time-item">
+				<div class="time-name">晚上23点</div>
+				<div class="time-box">
+					<div class="time">23:00</div>
+					<div class="time">23:30</div>
+				</div>
+			</div>
+			<div class="time-item">
+				<div class="time-name">晚上00点</div>
+				<div class="time-box">
+					<div class="time">00:00</div>
+					<div class="time">00:30</div>
+				</div>
+			</div>
+		</div>
+		<div class="meet-panel noselect">
+		</div>
+	</div>
+	
+	<script type="text/html" id="time-item.html">
+		<div class="time-item">
+			<div class="time-name">{{d.name}}</div>
+			<div class="time-box">
+				<div class="time">{{d.time1}}</div>
+				<div class="time">{{d.time2}}</div>
+			</div>
+		</div>
+	</script>
+	
+	<script type="text/template" id="list-btn.tpl">
+		<a class="btn btn-sm {{d.class}}" data-right="{{d.rightCode}}" href="javascript:;"><i class="icon {{d.icon}}"></i> {{d.title}}</a>
+	</script>
+	
+	<script type="text/template" id="room.tpl">
+		<div id="{{d.id}}" class="room-name">{{d.roomName}}</div>
+	</script>
+	
+	<script type="text/template" id="room-box.tpl">
+		<div id="room-{{d.name}}" class="meet-box" data-name="{{d.name}}"></div>
+	</script>
+	
+	<script type="text/template" id="status.tpl">
+		<i class="icon icon-dot-circle"></i> {{d.status}}
+	</script>
+	
+	<script type="text/template" id="meet-none.tpl">
+		<div class="meet-none time-{{d.time}}" data-time="{{d.time}}">{{d.timeStr}} - {{d.timeStr2}}</div>
+	</script>
+	
+	<script type="text/template" id="meet-item.tpl">
+		<div class="meet-subject" title="{{d.subject}}&#10;发起人：{{d.user}}&#10;时间：{{d.start}} - {{d.end}}">{{d.subject}}</div>
+		<div class="meet-user">发起人：{{d.user}}</div>
+		<div class="meet-time">时间：{{d.start}} - {{d.end}}</div>
+	</script>
+	
+</body>
+</html>

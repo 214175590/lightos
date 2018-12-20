@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<title> 禅道任务监控 </title>
+<meta name="renderer" content="webkit" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<link rel="stylesheet" href="../../content/css/service-monitor.css" />
+<script id="seajsnode" type="text/javascript" src="../../loader.js" data-js="./js/zentao.js"></script></head>
+<body class="frame">
+	<div class="panel-left hid">
+		<form class="form-horizontal" id="form">
+			<div class="form-group">
+				<input type="hidden" id="rowId" name="rowId"/>
+			</div>
+			<div class="form-group">
+		    	<label for="proId" class="col-sm-3">项目ID</label>
+		    	<div class="col-md-6 col-sm-9" id="proId"></div>
+		  	</div>
+		  	<div class="form-group">
+		    	<label for="name" class="col-sm-3">项目名称</label>
+		    	<div class="col-md-6 col-sm-9" id="name"></div>
+		  	</div>
+			<div class="form-group">
+		    	<label for="users" class="col-sm-3">管理人员</label>
+		    	<div class="col-md-6 col-sm-9">
+		    		<select class="chosen" style="width:100%" multiple="" name="manager" id="manager" placeholder="项目管理人员" data-placeholder="项目管理人员">
+		      		</select>
+		    	</div>
+		  	</div>
+			<div class="form-group">
+		    	<label for="firstTime" class="col-sm-3">每日首次提醒时间</label>
+		    	<div class="col-md-6 col-sm-9">
+		      		<input class="form-control form-time" name="firstTime" id="firstTime" placeholder="每天首次提醒时间"/>
+		    	</div>
+		  	</div>
+		  	<div class="form-group">
+		    	<label for="time" class="col-sm-3">间隔时间再次提醒(分)</label>
+		    	<div class="col-md-6 col-sm-9">
+		      		<input type="number" class="form-control" name="time" id="time" placeholder="间隔时间"/>
+		    	</div>
+		  	</div>
+		  	
+		  	<div class="form-group">
+		    	<div class="col-sm-12 buttons">
+		      		<span class="btn btn-primary btn-save"> 保 存 </span>
+		      		<span class="btn btn-cancel"> 关 闭 </span>
+		    	</div>
+		  	</div> 
+		</form>
+	</div>
+	<div class="panel-cover hidden"></div>
+	<div class="panel-right">
+		<div class="func-box">
+			<div class="btn-group">
+				<button type="button" class="btn btn-status btn-success" data-status="0">全部</button>
+			  	<button type="button" class="btn btn-status btn-primary" data-status="2">已启用的</button>
+			  	<button type="button" class="btn btn-status btn-primary" data-status="1">未启用的</button>
+			</div>
+			<button class="btn btn-primary btn-reset">更新缓存</button>
+		</div>
+		<div class="result-panel">
+			<table class="table table-bordered">
+				<thead>
+					<th>项目ID</th>
+					<th>项目名称</th>
+					<th>管理员</th>
+					<th>每天首次提醒时间</th>
+					<th>间隔时间</th>
+					<th>操作</th>
+				</thead>
+				<tbody id="dataBody">
+				</tbody>
+			</table>
+			<div class="pager-box"></div>
+		</div>
+	</div>
+	
+	<script type="text/html" id="option.html">
+		<option value="{{d.value}}" data-icon="{{d.icon}}" data-uid="{{d.uid}}"><img src="{{d.icon}}"/> {{d.text}}</option>
+	</script>
+	
+	<script type="text/html" id="tr.html">
+	<tr class="{{d.statusClass}}" id="tr-{{d.rowId}}">
+		<td class="td5">{{d.proId}}</td>
+		<td class="td1">{{d.name}}</td>
+		<td class="">{{d.manager}}</td>
+		<td class="td2">{{d.firstTime}}</td>
+		<td class="td3">{{d.timeInterval}}</td>
+		<td class="td5">
+			<span class="icon-btn" data-id="{{d.rowId}}">
+				<i class="icon icon-edit btn-edit {{d.edit ? '' : 'hidden'}}" title="设置"></i>
+				<i class="icon icon-info-sign btn-detail" title="明细"></i>
+				<i class="icon {{d.notice}} btn-notice {{d.edit ? '' : 'hidden'}}" title="{{d.noticeText}}"></i>
+			</span>			
+		</td>
+	</tr>
+	</script>
+	
+	<script type="text/html" id="info.html">
+		<table class="info-table">
+			<tr>
+		    	<td class="left">项目名称（ID）</td>
+		    	<td>{{d.name}}（{{d.proId}}）</td>
+		  	</tr>
+			<tr>
+		    	<td class="left">管理员 </td>
+		    	<td>{{d.manager}}</td>
+		  	</tr>
+		  	<tr>
+		    	<td class="left">每天首次提醒时间</td>
+		    	<td>{{d.firstTime}}</td>
+		  	</tr>
+		  	<tr>
+		    	<td class="left">间隔提醒时间</td>
+		    	<td>{{d.timeInterval}}</td>
+		  	</tr>
+		</table>
+	</script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+@CHARSET "UTF-8";
+
+@IMPORT url("page-common.css");
+
+
+.left-panel {
+    float: left;
+    width: 180px;
+    height: calc(100% - 3px);
+}
+
+.right-panel {
+    float: left;
+    width: calc(100% - 181px);
+    height: calc(100% - 3px);
+}
+
+.menu-list {
+    width: 100%;
+    padding: 5px 0;
+}
+
+.menu-item {
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    padding-left: 15px;
+    cursor: pointer;
+}
+
+.menu-item:hover {
+    background: #eeeeee;
+}
+
+.menu-item.active {
+    background: #428bca;
+    color: #ffffff;
+}
+
+.menu-item.nof {
+    color: #cccccc;
+}

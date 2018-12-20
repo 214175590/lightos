@@ -1,0 +1,151 @@
+@CHARSET "UTF-8";
+
+@IMPORT url("page-common.css");
+
+.meet-list {
+    width: 100%;
+    float: left;
+    border: 1px solid #ececec;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+.meet-list:hover {
+    border: 1px solid #00539a;
+    box-shadow: 3px 3px 9px #7e9db7;
+}
+
+.meet-list.S3 {
+    border: 1px solid #ccf3d5;
+}
+
+.meet-list.S4 {
+    border: 1px solid #ececa8;
+}
+
+.meet-list.S3 .title {
+    background: #e9ffee;
+}
+
+.meet-list.S2 {
+    border: 1px solid #f3cecc;
+}
+
+.meet-list.S2 .title {
+    background: #ffe9e9;
+}
+
+.meet-list.S4 .title {
+    background: #fef9d6;
+}
+
+.meet-list.S2:hover {
+    border: 1px solid #ff4f00;
+    box-shadow: 3px 3px 9px #f28554;
+}
+
+.meet-list.S3:hover {
+    border: 1px solid #3fba22;
+    box-shadow: 3px 3px 9px #6ac454;
+}
+
+.meet-list.S4:hover {
+    border: 1px solid #d2be2a;
+    box-shadow: 3px 3px 9px #adad1f;
+}
+
+.meet-list:hover .title {
+    background: #00539a;
+    color: #ffffff;
+}
+
+.meet-list.S2:hover .title {
+    background: #ff4f00;
+    color: #ffffff;
+}
+
+.meet-list.S3:hover .title {
+    background: #3fba22;
+    color: #ffffff;
+}
+
+.meet-list.S4:hover .title {
+    background: #e0cb33;
+    color: #ffffff;
+}
+
+.meet-list .title {
+    width: 100%;
+    height: 40px;
+    line-height: 38px;
+    background: #ececec;
+    border-radius: 3px 3px 0 0;
+}
+
+.meet-list .title .meet-subject {
+    float: left;
+    width: calc(100% - 380px);
+}
+
+.meet-list .title .buttons {
+    float: left;
+    width: 380px;
+    text-align: right;
+}
+
+.meet-list .line {
+    width: 100%;
+    height: 40px;
+    line-height: 38px;
+    border-top: 1px solid #ececec;
+}
+
+.meet-list .line > div {
+    width: 33%;
+    float: left;
+    line-height: 35px;
+}
+
+.search-panel .form-buttons {
+    padding-left: 10px;
+    margin-top: 0;
+}
+
+.search-panel .form-status {
+    padding-left: 20px;
+}
+
+.search-panel .date-title {
+	float: left;
+    width: 70px;
+}
+
+.search-panel {
+    height: 45px;
+}
+
+.result-panel {
+    margin-top: 0;
+    float: left;
+}
+.meet-list .head {
+    font-weight: 900;
+    padding-left: 10px;
+}
+
+.meet-list .meet-status .s1 {
+    color: blue;
+}
+
+.meet-list .meet-status .s2 {
+    color: red;
+}
+
+.meet-list .meet-status .s3 {
+    color: #00d811;
+}
+
+.result-panel, .list-box {
+    width: 100%;
+    float: left;
+}

@@ -1,0 +1,259 @@
+@CHARSET "UTF-8";
+
+@IMPORT url("page-common.css");
+
+html, body {
+	overflow: hidden;
+    width: 100%;
+    height: 100%;
+}
+
+.r_content {
+    width: 100%;
+    height: 100%;
+}
+
+.r_left {
+    width: 300px;
+    height: 100%;
+    float: left;
+    padding: 5px 10px;
+}
+
+.r_left .lists {
+    width: 100%;
+    height: calc(100% - 48px);
+    overflow: auto;
+    border: 1px solid #dddddd;
+    padding: 5px;
+}
+
+.r_left .lists .item {
+    width: 100%;
+    height: 30px;
+    line-height: 23px;
+    background: #ffffff;
+    border: 3px solid #e4e4e4;
+    box-shadow: 3px 3px 4px #989898;
+    border-radius: 5px;
+    padding: 0 10px;
+    cursor: pointer;
+    position: relative;
+    margin-bottom: 5px;
+}
+
+.r_left .lists .item.active {
+    background: #055851;
+    color: #ffffff;
+}
+
+.r_left .lists .item.loaded {
+    border: 3px solid #00ff1c;
+    box-shadow: 3px 3px 4px #006f4e;
+}
+
+.r_left .lists .item:hover {
+    background: #166ae0;
+    color: #000000;
+}
+
+.r_left .lists .item .icon {
+    color: #ffffff;
+}
+
+.ft {
+    position: absolute;
+    z-index: 1;
+    right: 2px;
+    top: 2px;
+}
+
+.ft .icon {
+    color: #bf4a4a !important;
+    font-size: 18px;
+}
+
+.ft .icon:hover {
+    color: #ff0000 !important;
+}
+
+.r_right {
+    width: calc(100% - 302px);
+    height: 100%;
+    float: left;
+    padding: 10px;
+}
+
+.class-list {
+    width: 100%;
+    height: 400px;
+    overflow: auto;
+    border: 1px solid #d1dae8;
+    box-shadow: 2px 2px 3px #d1dae8;
+}
+
+.jar-call , .method-call {
+    width: 100%;
+    height: calc(100% - 440px);
+    padding: 10px 0;
+}
+
+.param1, .param2 {
+    width: calc(50% - 50px);
+    height: calc(100% - 5px) !important;
+    float: left;
+    overflow: auto;
+}
+
+.result1, .result2 {
+    width: calc(50% - 50px);
+    height: calc(100% - 5px) !important;
+    float: left;
+}
+
+.buttons {
+    width: 100px;
+    height: 100%;
+    float: left;
+    text-align: center;
+}
+
+.buttons .btn {
+    margin-top: 20px;
+}
+
+.other {
+    width: calc(100% - 250px);
+    height: 30px;
+    float: left;
+    line-height: 30px;
+}
+
+.forms {
+    width: 100%;
+    height: 40px;
+}
+
+.status {
+    width: 250px;
+    float: left;
+    height: 30px;
+    line-height: 30px;
+}
+
+.servers-box {
+	width: 60px;
+	height: 100%;
+	float: left;
+}
+
+.servers {
+    width: 205px;
+    height: 100%;
+    float: left;
+}
+
+.search-box {
+    width: calc(100% - 290px);
+    float: left;
+    margin-left: 20px;
+}
+
+.title {
+    width: 100%;
+    height: 44px;
+    font-size: 20px;
+    line-height: 42px;
+}
+
+.tools {
+    display: inline-block;
+    width: 115px;
+    height: 100%;
+    text-align: right;
+}
+
+.tools .icon {
+    cursor: pointer;
+}
+
+.tools .icon:hover {
+    color: red;
+}
+
+.btn-upload {
+    line-height: 18px !important;
+    height: 30px !important;
+    width: 90px !important;
+    padding: 5px !important;
+}
+
+.btn-upload input {
+    width: 89px;
+    height: 30px !important;
+}
+
+.tools > div {
+    overflow: initial !important;
+}
+
+.lineitem {
+    min-width: 650px;
+    height: 40px;
+    line-height: 35px;
+    float: left;
+    border: 2px solid #f2f2f2;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    padding: 0 5px 5px 8px;
+    cursor: pointer;
+    position: relative;
+}
+
+.lineitem.active {
+    border: 2px solid #1800ff !important;
+    border-radius: 50px;
+}
+
+.lineitem:hover {
+    border: 2px solid #f3e907 !important;
+}
+
+.fl {
+    position: absolute;
+    left: 3px;
+}
+
+.lineitem.failed {
+    background: #c53d3d;
+    color: #ffffff;
+    border: 2px solid #ad4600;
+}
+
+.lineitem.success {
+    background: #3dc564;
+    color: #ffffff;
+    border: 2px solid #00ad7e;
+}
+
+.lineitem.success.error {
+    background: red;
+    background: linear-gradient(to right, #05cc4b, red);
+    background: -webkit-linear-gradient(0deg, #05cc4b, red);
+}
+
+.helpbox {
+    width: 100%;
+    height: 16px;
+    text-align: left;
+    padding-left: 10px;
+    color: #f37200;
+    cursor: pointer;
+}
+
+.help-box {
+    position: absolute;
+    z-index: 2;
+    border: 1px solid #dddddd;
+    box-shadow: 2px 3px 5px #c3c3c3;
+}

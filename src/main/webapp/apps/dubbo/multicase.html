@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<title> Zookeeper服务节点 </title>
+<meta name="renderer" content="webkit" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<link rel="stylesheet" href="../../content/css/dubbo-history.css" />
+<script id="seajsnode" type="text/javascript" src="../../loader.js" data-js="./js/multicase"></script>
+</head>
+<body>
+	<div class="r_content">
+		<div class="r_left">
+			<div class="title">用例列表
+				<div class="ft">
+					<i class="icon icon-plus btn-add" data-toggle="tooltip" data-placement="bottom" title="添加单条用例"></i>
+					<i class="icon icon-list-ul btn-add-multi" data-toggle="tooltip" data-placement="bottom" title="批量添加用例"></i>
+					<i class="icon icon-list-alt btn-multi-test" data-toggle="tooltip" data-placement="bottom" title="批量执行用例"></i>
+				</div>
+			</div>
+			<div class="lists"></div>
+		</div>
+		<div class="r_right">
+			<div class="forms">
+				<div class="status">
+					<div>
+						<span class="st0 hidden">Jar Name：</span>
+						<span class="st1 hidden">Dubbo Server：</span>
+						<span class="sv1"></span>
+					</div>
+					<div>
+						<span class="st2">Zookeeper：</span>
+						<span class="sv2"></span>
+					</div>
+					<div>
+						<span class="st3">接口：</span>
+						<span class="sv3"></span>
+					</div>
+					<div>
+						<span class="st4">方法：</span>
+						<span class="sv4"></span>
+					</div>
+				</div>
+			</div>
+			<div class="method-call">
+				<textarea class="form-control param" placeholder="请求参数"></textarea>
+				<div class="buttons">
+					<button class="btn btn-primary btn-run hidden">执行测试</button>
+					<button class="btn btn-primary btn-save hidden">修改用例</button>
+					<button class="btn btn-primary btn-saveas hidden">用例另存为...</button>
+				</div>
+				<textarea class="form-control result" placeholder="上次/本次 执行结果" readonly="readonly"></textarea>
+			</div>
+		</div>
+	</div>
+	
+	<script type="text/html" id="item.html">
+		<div id="id{{d.id}}" class="item {{d.active ? 'active' : ''}}" data-id="{{d.id}}" data-name="{{d.name}}" data-index="{{d.index}}"><i class="icon icon-arrow-right"></i> {{d.name}} <div class="ft"><i class="icon icon-remove-sign" title="删除{{d.name}}？"></i></div></div>
+	</script>
+	
+</body>
+</html>

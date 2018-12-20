@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<title> 代码生成 </title>
+<meta name="renderer" content="webkit" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<link rel="stylesheet" href="../../content/css/code-gener.css" />
+<script id="seajsnode" type="text/javascript" src="../../loader.js" data-js="./js/code-gener.js"></script></head>
+<body class="frame">
+	<div class="page-head">
+		<div class="btn-group">
+			<button type="button" class="btn btn-status btn-success" data-id="f1" data-url="./code_sql.html">根据SQL生成类</button>
+		  	<button type="button" class="btn btn-status btn-primary" data-id="f2" data-url="./code_db.html">根据表生成类</button>
+		  	<button type="button" class="btn btn-status btn-primary" data-id="f3" data-url="./code_other.html">其他代码生成</button>
+		</div>
+	</div>
+	<div class="page-body">
+		<iframe src="./code_sql.html" id="subpage-f1" class="subframe" frameborder="0" width="100%" height="100%"></iframe>
+	</div>
+	
+	<script type="text/html" id="frame.tpl">
+		<iframe src="{{d.src}}" id="subpage-{{d.id}}" class="subframe" frameborder="0" width="100%" height="100%"></iframe>
+	</script>
+</body>
+</html>

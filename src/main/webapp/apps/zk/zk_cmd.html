@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<title> Zookeeper服务4字命令 </title>
+<meta name="renderer" content="webkit" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<link rel="stylesheet" href="../../content/css/zk-cmd.css" />
+<script id="seajsnode" type="text/javascript" src="../../loader.js" data-js="./js/cmd"></script></head>
+<body>
+	<div class="main">
+		<ul class="cmd-ul">
+			<li class="item active">conf</li>
+			<li class="item">cons</li>
+			<li class="item">crst</li>
+			<li class="item">dump</li>
+			<li class="item">envi</li>
+			<li class="item">ruok</li>
+			<li class="item">srst</li>
+			<li class="item">srvr</li>
+			<li class="item">stat</li>
+			<li class="item">wchs</li>
+			<li class="item">wchc</li>
+			<li class="item">wchp</li>
+			<li class="item">mntr</li>
+		</ul>
+		<div class="result">
+			<textarea id="code-edit" class="area"></textarea>
+		</div>
+		
+		<div class="node-info hidden"></div>
+	</div>
+	
+	<script type="text/html" id="info.html">
+	<table class="table table-auto">
+		<tr>
+	    	<td class="left-td">应用名称：</td>
+	    	<td class="right-td">{{d.name}}</td>
+	  	</tr>
+	  	<tr>
+	    	<td class="left-td">网络地址：</td>
+	    	<td class="right-td">{{d.address}}</td>
+	  	</tr>
+		<tr>
+	    	<td class="left-td">Dubbo版本：</td>
+	    	<td class="right-td">{{d.dubbo}}</td>
+	  	</div>
+		<tr>
+	    	<td class="left-td">应用版本：</td>
+	    	<td class="right-td">{{d.revision}}</td>
+	  	</div>
+	  	<tr>
+	    	<td class="left-td">接口名称：</td>
+	    	<td class="right-td">{{d.interfaceName}}</td>
+	  	</tr>
+	  	<tr>
+	    	<td class="left-td">方法名称：</td>
+	    	<td class="right-td">{{d.method}}</td>
+	  	</div>
+		<tr>
+	    	<td class="left-td">使用类型：</td>
+	    	<td class="right-td">{{d.side}}</td>
+	  	</div>
+	</table>
+	</script>
+	
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<title> 新增Dubbo测试用例 </title>
+<meta name="renderer" content="webkit" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<link rel="stylesheet" href="../../content/css/svn-index.css" />
+<script id="seajsnode" type="text/javascript" src="../../loader.js" data-js="./js/add"></script></head>
+<body>
+	
+	<form class="form-horizontal add-form" id="form">
+		<div class="form-group">
+			<input type="hidden" name="rowId" id="rowId" >
+		</div>
+		<div class="form-group">
+	    	<label for="name" class="col-sm-2">项目别名<span class="red">*</span></label>
+	    	<div class="col-md-10 col-sm-10">
+	      		<input class="form-control" name="name" id="name" placeholder="给项目取个别名"/>
+	    	</div>
+	  	</div>
+		<div class="form-group">
+	    	<label for="url" class="col-sm-2">SVN地址<span class="red">*</span></label>
+	    	<div class="col-md-10 col-sm-10">
+	      		<input class="form-control" name="url" id="url" placeholder="项目svn地址，不包含主机地址"/>
+	    	</div>
+	  	</div>
+	  	<div class="form-group">
+	    	<label for="username" class="col-sm-2">SVN账号<span class="red">*</span></label>
+	    	<div class="col-md-4 col-sm-4">
+	      		<input class="form-control" name="username" id="username" placeholder="svn账号"/>
+	    	</div>
+	    	<label for="password" class="col-sm-2">SVN密码 <span class="red">*</span></label>
+	    	<div class="col-md-4 col-sm-4">
+	      		<input type="password" class="form-control" name="password" id="password" placeholder="svn账户的密码"/>
+	    	</div>
+	  	</div>
+	  	<div class="form-group">
+	    	<div class="col-sm-12 buttons">
+	      		<span class="btn btn-primary btn-save"> 保 存 </span>
+	      		<span class="btn btn-cancel"> 关 闭 </span>
+	    	</div>
+	  	</div>
+	</form>
+	
+</body>
+</html>

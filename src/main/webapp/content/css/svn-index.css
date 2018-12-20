@@ -1,0 +1,110 @@
+@CHARSET "UTF-8";
+
+@IMPORT url("page-common.css");
+
+html, body {
+	overflow: hidden;
+}
+
+.top-box {
+    width: 100%;
+    height: 100px;
+    padding: 10px 20px;
+    position: relative;
+}
+
+.version-box {
+    height: 230px;
+    overflow: auto;
+}
+
+.desc-box {
+    height: 100px;
+    padding-top: 2px;
+}
+
+.desc-view {
+    width: calc(100% - 5px);
+    height: calc(100% - 4px) !important;
+    margin-left: 2px;
+}
+
+.files-box {
+	width: 100%;
+    height: calc(100% - 432px);
+    overflow: auto;
+}
+
+.files-box .td1,
+.files-box .td2,
+.files-box .td3,
+.files-box .td4 {
+    word-wrap: break-word;
+    height: 36px !important;
+    min-height: 36px !important;
+}
+
+.files-box .datatable-rows div, 
+.files-box .datatable-rows .trow {
+	width: 100% !important;
+}
+
+.files-box .trow.tr-A {
+    color: #00b130;
+}
+
+.files-box .trow.tr-M {
+    color: #0076fb;
+}
+
+.files-box .trow.tr-D {
+    color: #d82b00;
+}
+
+.file-item {
+    border-bottom: 1px #b7b7b7 dashed;
+}
+
+.file-item:hover {
+    text-decoration: none;
+    border-bottom: 1px #ff0003 solid;
+}
+
+.add-form {
+    width: 100%;
+    padding: 15px 50px;
+}
+
+.add-form label {
+    text-align: right;
+}
+
+.add-form .buttons {
+    width: 100%;
+    margin-top: 30px;
+    text-align: center;
+}
+
+.version-box .icon-plus-sign {
+    color: #00bb91;
+}
+
+.version-box .icon-edit {
+    color: #0463fb;
+}
+
+.version-box .icon-minus-sign {
+    color: #f30000;
+}
+
+.btn-box {
+    position: absolute;
+    right: 10px;
+}
+
+.btn-box .btn {
+    width: 100px;
+    height: 50px;
+    line-height: 35px;
+    font-size: 16px;
+}

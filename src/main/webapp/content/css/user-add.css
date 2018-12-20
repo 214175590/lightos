@@ -1,0 +1,67 @@
+@CHARSET "UTF-8";
+
+@IMPORT url("page-common.css");
+
+body {
+	background: #ffffff;
+}
+
+.wrapper.wrapper-content {
+    width: 100%;
+    height: 100%;
+    padding: 10px 50px;
+}
+
+.form-buttons {
+    width: 100%;
+    text-align: center;
+}
+
+.form-buttons > .btn {
+    margin-right:  20px;
+}
+
+.dept-panel {
+    position: absolute;
+    z-index: 2;
+    background: #ffffff;
+    border: 1px solid #dddddd;
+    border-radius: 5px;
+    margin-top: 32px;
+    height: 300px;
+    overflow-y: auto;
+}
+
+.dept-panel > .dept-item {
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    padding: 0 10px;
+    background: #ffffff;
+    cursor: pointer;
+}
+
+.dept-panel > .dept-item:hover {
+    background: #38b03f;
+    color: #ffffff;
+}
+
+.head-line {
+    width: 100%;
+    height: 40px;
+    line-height: 37px;
+    float: left;
+    background: #ffef7e;
+    padding-left: 20px;
+    color: #ff0000;
+}
+
+.search-panel {
+    padding-top: 0;
+    padding: 0;
+}
+
+.result-panel {
+    height: calc(100% - 50px);
+    overflow-y: auto;
+}

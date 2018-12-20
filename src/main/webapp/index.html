@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+<head>
+    <base href="./" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>lightos</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#000000">
+    <link rel="shortcut icon" href="favicon.ico" />
+    <style type="text/css">
+    	.title {
+    	    width: 100%;
+		    text-align: center;
+    	}
+    </style>
+</head>
+<body>
+	<div class="title" id="xt">正在进入 Light OS .</div>
+	<script type="text/javascript">
+		var xt = document.getElementById('xt');
+		var s = ".";
+		setInterval(function(){
+			xt.innerText = '正在进入 Light OS ' + (s += ".");
+		}, 600);
+		document.location.replace('./apps/home/index.html');
+	</script>
+</body>
+</html>

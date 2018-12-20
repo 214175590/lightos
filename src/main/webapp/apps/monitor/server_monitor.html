@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<title> 服务监控 </title>
+<meta name="renderer" content="webkit" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<link rel="stylesheet" href="../../content/css/service-monitor.css" />
+<script id="seajsnode" type="text/javascript" src="../../loader.js" data-js="./js/service-monitor.js"></script></head>
+<body class="frame">
+	<div class="panel-left hid">
+		<form class="form-horizontal" id="form">
+			<input type="hidden" id="rowId" name="rowId"/>
+			<div class="form-group">
+		    	<label for="typed" class="col-sm-3">服务类型 <span class="red">*</span></label>
+		    	<div class="col-md-6 col-sm-9">
+		      		<select name="typed" id="typed" class="chosen" style="width:100%" placeholder="服务类型：http(s)、socket">
+		      			<option value="http">http(s)</option>
+		      			<option value="socket">socket</option>
+		      		</select>
+		    	</div>
+		  	</div>
+			<div class="form-group">
+		    	<label for="address" class="col-sm-3">地址 <span class="red">*</span></label>
+		    	<div class="col-md-6 col-sm-9">
+		      		<input class="form-control" name="address" id="address" placeholder="http(s)://，例如：http://www.baidu.com">
+		    	</div>
+		  	</div>
+		  	<div class="form-group">
+		    	<label for="remark" class="col-sm-3">描述 <span class="red">*</span></label>
+		    	<div class="col-md-6 col-sm-9">
+		      		<input class="form-control" name="remark" id="remark" placeholder="描述">
+		    	</div>
+		  	</div>
+		  	<div class="form-group">
+		    	<label for="times" class="col-sm-3">检测间隔(秒) <span class="red">*</span></label>
+		    	<div class="col-md-6 col-sm-9">
+		      		<input type="number" class="form-control" name="times" id="times" placeholder="检测间隔，单位秒，建议间隔时间不要太短" value="30">
+		    	</div>
+		  	</div>
+		  	<div class="form-group">
+		    	<label for="email" class="col-sm-3">通知邮箱 </label>
+		    	<div class="col-md-6 col-sm-9">
+		      		<input class="form-control" name="email" id="email" placeholder="出现无法访问/连接时通知邮箱，多个用户邮箱以‘;’号分隔">
+		    	</div>
+		  	</div>
+		  	<div class="form-group">
+		    	<label for="users" class="col-sm-3">通知人员</label>
+		    	<div class="col-md-6 col-sm-9">
+		    		<select class="chosen" style="width:100%" multiple="" name="users" id="users" placeholder="出现无法访问/连接时通知OA中人员" data-placeholder="出现无法访问/连接时通知OA中人员">
+		      		</select>
+		    	</div>
+		  	</div>
+		  	<div class="form-group">
+		    	<div class="col-sm-12 buttons">
+		      		<span class="btn btn-primary btn-save"> 保 存 </span>
+		      		<span class="btn btn-cancel"> 关 闭 </span>
+		    	</div>
+		  	</div> 
+		</form>
+	</div>
+	<div class="panel-cover hidden"></div>
+	<div class="panel-right">
+		<div class="func-box">
+			<button class="btn btn-primary btn-add">新增监控项</button>
+			<button class="btn btn-success btn-load">刷新列表</button>
+		</div>
+		<div class="result-panel">
+			<table class="table table-bordered">
+				<thead>
+					<th>类型</th>
+					<th>地址</th>
+					<th>描述</th>
+					<th>状态码</th>
+					<th>异常描述</th>
+					<th>间隔</th>
+					<th>操作</th>
+				</thead>
+				<tbody id="dataBody">
+				</tbody>
+			</table>
+		</div>
+	</div>
+	
+	<script type="text/html" id="tr.html">
+	<tr class="{{d.statusClass}}" id="tr-{{d.rowId}}">
+		<td class="td0">{{d.types}}</td>
+		<td class="td1">{{d.address}}</td>
+		<td class="td2">{{d.remark}}</td>
+		<td class="td3">{{d.status}}</td>
+		<td class="td4">{{d.statusText}}</td>
+		<td class="td5 process-{{d.rowId}}">{{d.process}}</td>
+		<td class="td6">
+			<span class="icon-btn" data-id="{{d.rowId}}">
+				<i class="icon icon-edit btn-edit {{d.edit ? '' : 'hidden'}}" title="编辑"></i>
+				<i class="icon icon-trash btn-del {{d.del ? '' : 'hidden'}}" title="删除"></i>
+				<i class="icon icon-info-sign btn-detail" title="明细"></i>
+				<i class="icon icon-cogs btn-check" title="立即检测"></i>
+				<i class="icon {{d.notice}} btn-notice {{d.edit ? '' : 'hidden'}}" title="{{d.noticeText}}"></i>
+			</span>			
+		</td>
+	</tr>
+	</script>
+	
+	<script type="text/html" id="option.html">
+		<option value="{{d.value}}" data-icon="{{d.icon}}" data-uid="{{d.uid}}"><img src="{{d.icon}}"/> {{d.text}}</option>
+	</script>
+	
+	<script type="text/html" id="progress.html">
+		<div class="progress progress-striped active">
+  			<div class="progress-bar" role="progressbar progress-bar-success" aria-valuenow="{{d.now}}" aria-valuemin="0" aria-valuemax="{{d.max}}" style="width: {{d.width}}px" title="{{d.now}}秒/{{d.max}}秒">{{d.now}}/{{d.max}}</div>
+		</div>
+	</script>
+	
+	<script type="text/html" id="info.html">
+		<table class="info-table">
+			<tr>
+		    	<td class="left">服务类型</td>
+		    	<td>{{d.typed}}</td>
+		  	</tr>
+			<tr>
+		    	<td class="left">地址 </td>
+		    	<td>{{d.address}}</td>
+		  	</tr>
+		  	<tr>
+		    	<td class="left">描述</td>
+		    	<td>{{d.remark}}</td>
+		  	</tr>
+		  	<tr>
+		    	<td class="left">检测间隔</td>
+		    	<td>{{d.times}} 秒</td>
+		  	</tr>
+		  	<tr>
+		    	<td class="left">通知邮箱 </td>
+		    	<td>{{d.email}}</td>
+		  	</tr>
+		  	<tr>
+		    	<td class="left">通知人员</td>
+		    	<td>{{d.users}}</td>
+		  	</tr>
+		</table>
+	</script>
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<title> 用户管理 </title>
+<meta name="renderer" content="webkit" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<link rel="stylesheet" href="../../content/css/user-index.css" />
+<script id="seajsnode" type="text/javascript" src="../../loader.js" data-js="./js/user-index.js"></script>
+</head>
+<body class="frame">
+	<div class="subpage-box hidden">
+		<iframe id="subframe" src="" frameborder="0"></iframe>
+	</div>
+	<div class="search-panel">
+		<div class="col-wd-10 form-horizontal form-inline">
+			<div class="form-group col-wd-3">
+				<label class="col-wd-2" for="name">姓名：</label>
+				<div class="col-wd-7">
+					<input class="form-control" id="name"/>
+				</div>
+			</div>
+			<div class="form-group col-wd-3">
+				<label class="col-wd-2" for="account">账号：</label>
+				<div class="col-wd-7">
+					<input class="form-control" id="account"/>
+				</div>
+			</div>
+			<div class="form-group col-wd-3">
+				<label class="col-wd-2" for="company">公司：</label>
+				<div class="col-wd-7">
+					<select id="company" name="company" class="chosen-select form-control col-wd-10">
+						<option value="">全部</option>
+						<option value="供销e家">供销e家</option>
+						<option value="银兴科技">银兴科技</option>
+						<option value="法本信息">法本信息</option>
+					</select>
+				</div>
+			</div>
+			<div class="form-group col-wd-1">
+				<button class="btn btn-warning search-btn">查 询</button>
+			</div>
+		</div>
+	</div>
+	<div class="function-panel">
+		<button class="btn btn-success add-btn">新增用户</button>
+	</div>
+	<div class="result-panel">
+		<table class="table datatable">
+			<thead>
+			<tr>
+				<th class="acc-field">账号</th>
+				<th class="name-field">姓名</th>
+				<th class="mobile-field">手机号码</th>
+				<th class="email-field">电子邮箱</th>
+				<th class="company-field">公司</th>
+				<th>部门</th>
+				<th>职位</th>
+				<th class="status-field">QQ</th>
+				<th class="area-field">微信</th>
+				<th class="sort-disabled">操作</th>
+			</tr>
+			</thead>
+			<tbody id="data-body"></tbody>
+		</table>
+		<div class="pager-box"></div>
+	</div>
+	
+	<script type="text/template" id="list-tr.tpl">
+		<tr class="row-{{d.rowId}} {{d.trclass}}" id="{{d.account}}" data-id="{{d.rowId}}">
+			<td class="acc-field">{{d.account}}</td>
+			<td class="name-field">{{d.name}}</td>
+			<td class="mobile-field">{{d.mobile}}</td>
+			<td class="email-field">{{d.email}}</td>
+			<td class="company-field">{{d.company}}</td>
+			<td>{{d.dept}}</td>
+			<td>{{d.position}}</td>
+			<td class="qq-field">{{d.qq}}</td>
+			<td class="wx-field">{{d.wx}}</td>
+			<td class="sort-disabled">
+				{{d.buttons}}
+			</td>
+		</tr>
+	</script>
+	
+	<script type="text/template" id="list-btn.tpl">
+		<a class="icon-btn {{d.class}}" data-right="{{d.rightCode}}" href="javascript:;" data-toggle="tooltip" data-right="{{d.rightCode}}" title="{{d.title}}"><i class="icon {{d.icon}}"></i></a>
+	</script>
+	
+	<script type="text/template" id="icon-view.tpl">
+		<img src="{{d.src}}" width="24" height="24" />
+	</script>
+	
+	<script type="text/template" id="href.tpl">
+		<a href="javascript:void(0);" data-toggle="tooltip" data-placement="left" title="{{d.title}}" class="tips">地址</a>
+	</script>
+</body>
+</html>

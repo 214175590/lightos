@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="renderer" content="webkit" />
+<title> Svn 文件内容查看 </title>
+<link rel="stylesheet" href="../../content/css/svn-editor.css" />
+<link rel="stylesheet" href="../../lib/codemirror/lib/codemirror.css" />
+<link rel="stylesheet" href="../../lib/codemirror/addon/lint/lint.css" />
+<link rel="stylesheet" href="../../lib/codemirror/addon/hint/show-hint.css" />
+<link rel="stylesheet" href="../../lib/codemirror/theme/ambiance.css" />
+
+<script src="../../lib/codemirror/lib/codemirror-min.js"></script>
+<script src="../../lib/codemirror/mode/javascript/javascript.js"></script>
+<script src="../../lib/codemirror/mode/clike/clike.js"></script>
+<script src="../../lib/codemirror/mode/css/css.js"></script>
+<script src="../../lib/codemirror/mode/html.js"></script>
+
+<script src="../../lib/codemirror/mode/xml/xml.js"></script>
+<script src="../../lib/codemirror/mode/yaml/yaml.js"></script>
+<script src="../../lib/codemirror/mode/sql/sql.js"></script>
+<script src="../../lib/codemirror/mode/properties/properties.js"></script>
+<script src="../../lib/codemirror/mode/shell/shell.js"></script>
+
+<script src="../../lib/codemirror/addon/lint/lint.js"></script>
+<script src="../../lib/codemirror/addon/lint/javascript-lint.js"></script>
+<script src="../../lib/codemirror/addon/hint/jshint.js"></script>
+<script src="../../lib/codemirror/addon/hint/jsonlint.js"></script>
+<script src="../../lib/codemirror/addon/hint/csslint.js"></script>
+
+<script src="../../lib/codemirror/addon/hint/show-hint.js"></script>
+<script src="../../lib/codemirror/addon/lint/css-lint.js"></script>
+<script src="../../lib/codemirror/addon/hint/xml-hint.js"></script>
+<script src="../../lib/codemirror/addon/hint/html-hint.js"></script>
+
+<script id="seajsnode" type="text/javascript" src="../../loader.js" data-js="./js/editor.js"></script>
+</head>
+<body>
+	<header>
+		<span class="logo-text">Svn</span>
+		<span class="headbox">
+			<select class="chosen form-control" id="versions"></select>
+		</span>
+		<span class="tools">
+			<<span class="btn btn-primary btn-new">最新内容</span>
+			<<span class="btn btn-primary btn-diff">变更内容</span>
+		</span>
+	</header>
+	<div class="main-body">
+		<textarea id="code-edit" class="area"></textarea>
+	</div>
+	
+	<script type="text/html" id="ops.html">
+		<option value="{{d.value}}" {{d.selected ? 'selected' : ''}} title="{{d.desc}}">{{d.name}}</option>
+	</script>
+</body>
+</html>

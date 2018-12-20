@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> 修改会议预约信息 </title>
+<link rel="stylesheet" href="../../../content/css/meeting-minutes.css" />
+<script id="seajsnode" type="text/javascript" src="../../../loader.js" data-js="./js/meeting-minutes"></script>
+</head>
+<body>
+	<div class="wrapper wrapper-content">
+		<form class="form-horizontal form-inline" id="form">
+			<div class="form-group col-wd-10">
+				<label class="col-wd-2" for="meetSubject">会议主题</label>
+				<div class="col-wd-7">
+					<span id="meetSubject" name="meetSubject"></span>
+				</div>
+			</div>
+			<div class="form-group col-wd-10">
+				<label class="col-wd-2" for="meetDate">会议时间</label>
+				<div class="col-wd-7">
+					<span id="meetDate" name="meetDate"></span>
+					<span id="meetStart" name="meetStart"></span>
+					-
+					<span id="meetDate" name="meetDate"></span>
+					<span id="meetEnd" name="meetEnd"></span>
+				</div>
+			</div>
+			<div class="form-group col-wd-10">
+				<label class="col-wd-2" for="boardroom">会议室</label>
+				<div class="col-wd-7">
+					<span id="boardroom" name="boardroom"></span>
+				</div>
+			</div>
+			<div class="form-group col-wd-10">
+				<label class="col-wd-2" for="member">与会人员</label>
+				<div class="col-wd-7">
+					<span id="member" name="member"></span>
+				</div>
+			</div>
+			<div class="form-group col-wd-10">
+				<label class="col-wd-2" for="meetRemark">会议说明</label>
+				<div class="col-wd-7">
+					<span id="meetRemark" name="meetRemark"></span>
+				</div>
+			</div>
+			<div class="form-group col-wd-10">
+				<label class="col-wd-2" for="mailNotification1">邮件通知</label>
+				<div class="col-wd-1">
+					<span id="mailNotification" name="mailNotification"></span>
+				</div>
+				<label class="col-wd-2" for="mailReminder1">会前提醒</label>
+				<div class="col-wd-1">
+					<span id="mailReminder" name="mailReminder"></span>
+				</div>
+			</div>
+			<div class="form-group col-wd-10">
+				<label class="col-wd-2" for="mailReminder1">会议纪要</label>
+				<div class="col-wd-7">
+					<textarea class="form-control col-wd-10" id="meetMinutes" name="meetMinutes" placeholder="补充会议纪要"></textarea>
+				</div>
+			</div>
+			<div class="col-wd-10">
+				<div class="alert"></div>
+			</div>
+		</form>
+		
+		<div class="form-group form-buttons col-wd-10">
+			<button class="btn btn-success btn-submit"> 保存 </button>
+			<button class="btn btn-warning btn-cancel">取消</button>
+		</div>
+	</div>
+	
+	<script type="text/template" id="member.tpl">
+		<div class="member-item">
+			{{d.initiator}}<span>{{d.name}}</span>{{d.conferenceClerk}}
+		</div>
+	</script>
+	
+	<script type="text/template" id="status.tpl">
+		<i class="icon icon-dot-circle s{{d.value}}"></i> {{d.status}}
+	</script>
+</body>
+</html>

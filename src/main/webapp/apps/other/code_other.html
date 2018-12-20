@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<title> 代码生成 </title>
+<meta name="renderer" content="webkit" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<link rel="stylesheet" href="../../content/css/code-other.css" />
+<script id="seajsnode" type="text/javascript" src="../../loader.js" data-js="./js/code-other.js"></script></head>
+<body class="other">
+	<ul class="nav nav-tabs">
+	    <li class="active"><a href="###" data-target="#tab2Content1" data-toggle="tab">字符串转StringBuffer</a></li>
+	    <li><a href="###" data-target="#tab2Content2" data-toggle="tab">标签2</a></li>
+	    <li><a href="###" data-target="#tab2Content3" data-toggle="tab">标签3</a></li>
+	</ul>
+	<div class="tab-content">
+		<div class="tab-pane fade active in" id="tab2Content1">
+			<div class="pane-left">
+				<textarea id="str1" class="form-control"></textarea>
+			</div>	
+			<div class="pane-middle">
+				<div class="line"><span class="btn btn-primary btn-conver1">转换</span></div>
+				<div class="line"><label><input type="checkbox" id="fillEmptyLine"/>去除空行</label></div>
+				<div class="line"><label><input type="checkbox" id="plusBr"/>加换行符</label></div>
+			</div>	
+			<div class="pane-right">
+				<pre id="res1" class="prettyprint form-control"></pre>
+			</div>	
+	    </div>
+	  	<div class="tab-pane fade" id="tab2Content2">
+	    	<p>标签2的内容。</p>
+	  	</div>
+	  	<div class="tab-pane fade" id="tab2Content3">
+	    	<p>这是标签3的内容。</p>
+	  	</div>
+	</div>
+	
+	<script type="text/html" id="frame.tpl">
+		<iframe src="{{d.src}}" id="subpage-{{d.id}}" class="subframe" frameborder="0" width="100%" height="100%"></iframe>
+	</script>
+</body>
+</html>

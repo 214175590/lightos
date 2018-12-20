@@ -1,0 +1,15 @@
+@CHARSET "UTF-8";
+
+@IMPORT url("page-common.css");
+
+html, body {
+	overflow: hidden;
+	padding: 20px 30px;
+}
+
+.buttons {
+	text-align: center;
+	margin-top: 75px;
+}
+
+

@@ -1,0 +1,118 @@
+@CHARSET "UTF-8";
+
+@IMPORT url("page-common.css");
+
+html,body{
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+
+body.sql{
+	overflow: auto;
+}
+
+.page-head {
+	width: 100%;
+	height: 40px;
+	padding: 4px 6px;
+}
+
+.page-body {
+    width: 100%;
+    height: calc(100% - 40px);
+    padding: 4px 6px;
+}
+
+.sql .page-head {
+    min-height: 300px;
+    height: auto;
+    float: left;
+}
+
+.sql .page-func {
+    height: 40px;
+    float: left;
+    margin: 5px 0;
+}
+
+.sql .page-body {
+    height: auto;
+    float: left;
+    margin: 5px 0;
+}
+
+.sql #sql {
+	min-height: 300px;
+    height: auto;
+    margin: 0 0 10px;
+}
+
+#appName,#moduleName {
+	width: 400px;
+	float: left;
+	margin-left: 5px;
+}
+
+#sql-view {
+	height: 300px;
+	overflow: auto;
+}
+
+.sql .title-box {
+	width: 100%;
+	height: 35px;
+	margin-bottom: 3px;
+}
+
+.sql .title {
+    font-size: 18px;
+    font-weight: 900;
+    margin-right: 20px;
+}
+
+.db .page-head {
+    height: 300px;
+}
+
+.db .form .form-control {
+    float: left;
+    width: 200px;
+    margin-left: 10px;
+}
+
+.db .form #dburl {
+    float: left;
+    width: 650px;
+    margin-left: 10px;
+}
+
+.db .table-box {
+    float: left;
+    padding: 5px;
+    border: 1px solid #eeeeee;
+    margin: 5px;
+    cursor: pointer;
+}
+
+.db .table-panel {
+    width: 100%;
+    height: calc(100% - 42px);
+    float: left;
+    overflow-y: auto;
+}
+
+.db .table-box:hover {
+    background: #dddddd;
+}
+
+.db .table-box.active {
+    background: #006f44;
+    color: #ffffff;
+    border: 1px solid #256300;
+}
+
+.db .table-box.active:hover {
+    background: #1fa270;
+    color: #effff3;
+}

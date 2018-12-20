@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> 新增用户 </title>
+<link rel="stylesheet" href="../../content/css/user-add.css" />
+<script id="seajsnode" type="text/javascript" src="../../loader.js" data-js="./js/user-add"></script>
+</head>
+<body>
+	<div class="wrapper wrapper-content">
+		<form class="form-horizontal form-inline" id="form">
+			<input type="hidden" id="rowId" name="rowId"/>
+			<div class="form-group col-wd-10">
+				<label class="col-wd-2" for="account">账号<span class="must">*</span></label>
+				<div class="col-wd-7">
+					<input class="form-control col-wd-10" id="account" name="account" placeholder="填写用户账号"/>
+				</div>
+			</div>
+			<div class="form-group col-wd-10">
+				<label class="col-wd-2" for="name">姓名<span class="must">*</span></label>
+				<div class="col-wd-7">
+					<input class="form-control col-wd-10" id="name" name="name" placeholder="填写用户姓名"/>
+				</div>
+			</div>
+			<div class="form-group col-wd-10">
+				<label class="col-wd-2" for="company">公司<span class="must">*</span></label>
+				<div class="col-wd-7">
+					<select id="company" name="company" class="chosen-select form-control col-wd-10" data-placeholder="填写所属公司">
+						<option value="供销e家">供销e家</option>
+						<option value="银兴科技">银兴科技</option>
+						<option value="法本信息">法本信息</option>
+					</select>
+				</div>
+			</div>
+			<div class="form-group col-wd-10">
+				<label class="col-wd-2" for="dept">部门<span class="must">*</span></label>
+				<div class="col-wd-7">
+					<select id="dept" name="dept" class="chosen-select form-control col-wd-10" data-placeholder="填写所在部门">
+						<option value="技术部">技术部</option>
+						<option value="测试部">测试部</option>
+						<option value="产品部">产品部</option>
+						<option value="运维部">运维部</option>
+						<option value="管理部">管理部</option>
+					</select>
+				</div>
+			</div>
+			<div class="form-group col-wd-10">
+				<label class="col-wd-2" for="position">职位<span class="must">*</span></label>
+				<div class="col-wd-7">
+					<select id="position" name="position" class="chosen-select form-control col-wd-10" data-placeholder="填写所在地区">
+						<option value="开发工程师">开发工程师</option>
+						<option value="测试工程师">测试工程师</option>
+						<option value="运维工程师">运维工程师</option>
+						<option value="数据库工程师">数据库工程师</option>
+						<option value="UI设计师">UI设计师</option>
+						<option value="需求分析师">需求分析师</option>
+						<option value="项目经理">项目经理</option>
+						<option value="产品经理">产品经理</option>
+						<option value="架构师">架构师</option>
+						<option value="部门经理">部门经理</option>
+						<option value="总经理">总经理</option>
+					</select>
+				</div>
+			</div>
+			<div class="form-group col-wd-10">
+				<label class="col-wd-2" for="mobile">手机号码</label>
+				<div class="col-wd-7">
+					<input class="form-control col-wd-10" id="mobile" name="mobile" placeholder="填写手机号码"/>
+				</div>
+			</div>
+			<div class="form-group col-wd-10">
+				<label class="col-wd-2" for="email">电子邮箱</label>
+				<div class="col-wd-7">
+					<input class="form-control col-wd-10" id="email" name="email" placeholder="填写电子邮箱"/>
+				</div>
+			</div>
+			<div class="form-group col-wd-10">
+				<label class="col-wd-2" for="qq">QQ号码</label>
+				<div class="col-wd-7">
+					<input class="form-control col-wd-10" id="qq" name="qq" placeholder="填写用户QQ号码"/>
+				</div>
+			</div>
+			<div class="form-group col-wd-10">
+				<label class="col-wd-2" for="wx">微信号码</label>
+				<div class="col-wd-7">
+					<input class="form-control col-wd-10" id="wx" name="wx" placeholder="填写用户微信号码"/>
+				</div>
+			</div>
+			<div class="form-group col-wd-10">
+				<label class="col-wd-2" for="remark">备注</label>
+				<div class="col-wd-7">
+					<input class="form-control col-wd-10" id="remark" name="remark" placeholder="填写用户备注"/>
+				</div>
+			</div>
+			<div class="col-wd-10">
+				<div class="alert"></div>
+			</div>
+		</form>
+		<div class="form-group form-buttons col-wd-10">
+			<button class="btn btn-success btn-submit"> 提交 </button>
+			<button class="btn btn-warning btn-cancel"> 放弃 </button>
+		</div>
+	</div>
+	
+	<script type="text/html" id="dept-item.html">
+		<div class="dept-item" data-dept="{{d.dept}}">{{d.dept}}</div>
+	</script>
+	
+</body>
+</html>

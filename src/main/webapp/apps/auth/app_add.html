@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> 新增应用 </title>
+<link rel="stylesheet" href="../../content/css/app-add.css" />
+<script id="seajsnode" type="text/javascript" src="../../loader.js" data-js="./js/app-add"></script>
+</head>
+<body>
+	<div class="wrapper wrapper-content">
+		<div class="icon-panel hidden"></div>
+		<form class="form-horizontal form-inline" id="form">
+			<input type="hidden" id="rowId" name="rowId"/>
+			<div class="form-group col-wd-10">
+				<label class="col-wd-2" for="name">名称 <span class="must">*</span></label>
+				<div class="col-wd-7">
+					<input class="form-control col-wd-10" id="name" name="name" placeholder="填写应用名称，字母与数字"/>
+				</div>
+			</div>
+			<div class="form-group col-wd-10">
+				<label class="col-wd-2" for="title">标题 <span class="must">*</span></label>
+				<div class="col-wd-7">
+					<input class="form-control col-wd-10" id="title" name="title" placeholder="填写应用标题"/>
+				</div>
+			</div>
+			<div class="form-group col-wd-10">
+				<label class="col-wd-2" for="types">类型 <span class="must">*</span></label>
+				<div class="col-wd-7">
+					<select id="types" name="types" class="chosen-select form-control col-wd-10" data-placeholder="选择应用类型">
+						<option value="link">链接地址</option>
+						<option value="frame">外部应用</option>
+						<option value="exe" id="exe-op">本地应用</option>
+					</select>
+				</div>
+			</div>
+			<div class="form-group col-wd-10">
+				<label class="col-wd-2" for="location">地址 <span class="must">*</span></label>
+				<div class="col-wd-7">
+					<input class="form-control col-wd-10" id="location" name="location" placeholder="填写应用地址"/>
+				</div>
+			</div>
+			<div class="form-group col-wd-10">
+				<label class="col-wd-2" for="windowWidth">窗口宽度(px) <span class="must">*</span></label>
+				<div class="col-wd-7">
+					<input class="form-control col-wd-10" id="windowWidth" name="windowWidth" placeholder="填写应用窗口宽度" value="1500"/>
+				</div>
+			</div>
+			<div class="form-group col-wd-10">
+				<label class="col-wd-2" for="windowHeight">窗口高度(px) <span class="must">*</span></label>
+				<div class="col-wd-7">
+					<input class="form-control col-wd-10" id="windowHeight" name="windowHeight" placeholder="填写应用窗口高度" value="850"/>
+				</div>
+			</div>
+			<div class="form-group col-wd-10">
+				<label class="col-wd-2" for="sleft">X坐标 <span class="must">*</span></label>
+				<div class="col-wd-7">
+					<select id="sleft" name="sleft" class="chosen-select form-control col-wd-10" data-placeholder="选择应用X坐标">
+						<option value="10">10</option>
+						<option value="110">110</option>
+						<option value="210">210</option>
+						<option value="310">310</option>
+						<option value="410">410</option>
+						<option value="510">510</option>
+						<option value="610">610</option>
+						<option value="710">710</option>
+						<option value="810">810</option>
+						<option value="910">910</option>
+						<option value="1010">1010</option>
+						<option value="1110">1110</option>
+						<option value="1210">1210</option>
+						<option value="1310">1310</option>
+						<option value="1410">1410</option>
+					</select>
+				</div>
+			</div>
+			<div class="form-group col-wd-10">
+				<label class="col-wd-2" for="top">Y坐标 <span class="must">*</span></label>
+				<div class="col-wd-7">
+					<select id="top" name="top" class="chosen-select form-control col-wd-10" data-placeholder="选择应用Y坐标">
+						<option value="10">10</option>
+						<option value="110">110</option>
+						<option value="210">210</option>
+						<option value="310">310</option>
+						<option value="410">410</option>
+						<option value="510">510</option>
+						<option value="610">610</option>
+						<option value="710">710</option>
+						<option value="810">810</option>
+					</select>
+				</div>
+			</div>
+			<div class="form-group col-wd-10">
+				<label class="col-wd-2" for="icon">应用图标</label>
+				<div class="col-wd-7">
+					<input type="hidden" class="form-control col-wd-10" id="icon" name="icon" value="content/images/icons/icon_1.png"/>
+					<img src="../../content/images/icons/icon_1.png" width="24" height="24" id="icon-img"/>
+					<span><a href="javascript:void(0);" class="btn-choose-icon">选择图标</a></span>
+				</div>
+			</div>
+			<div class="form-group col-wd-10">
+				<label class="col-wd-2" for="isdrag">图标/窗口可拖动</label>
+				<div class="col-wd-7">
+					<label for="isdrag"><input type="checkbox" id="isdrag" name="isdrag" checked="checked" value="true"/> 可拖动</label>
+				</div>
+			</div>
+			<div class="form-group col-wd-10">
+				<label class="col-wd-2" for="needClose">关闭按钮</label>
+				<div class="col-wd-7">
+					<label for="needClose"><input type="checkbox" id="needClose" name="needClose" checked="checked" value="true"/> 有</label>
+				</div>
+			</div>
+			<div class="form-group col-wd-10">
+				<label class="col-wd-2" for="needMinimize">最小化按钮</label>
+				<div class="col-wd-7">
+					<label for="needMinimize"><input type="checkbox" id="needMinimize" name="needMinimize" checked="checked" value="true"/> 有</label>
+				</div>
+			</div>
+			<div class="form-group col-wd-10">
+				<label class="col-wd-2" for="needMaximize">最大化按钮</label>
+				<div class="col-wd-7">
+					<label for="needMaximize"><input type="checkbox" id="needMaximize" name="needMaximize" checked="checked" value="true"/> 有</label>
+				</div>
+			</div>
+			<div class="form-group col-wd-10">
+				<label class="col-wd-2" for="closeFunction">关闭脚本</label>
+				<div class="col-wd-7">
+					<textarea class="form-control col-wd-10" id="closeFunction" name="closeFunction" placeholder="窗口关闭时执行脚本"></textarea>
+				</div>
+			</div>
+			<div class="form-group col-wd-10">
+				<label class="col-wd-2" for="minFunction">最小化脚本</label>
+				<div class="col-wd-7">
+					<textarea class="form-control col-wd-10" id="minFunction" name="minFunction" placeholder="窗口最小化时执行脚本"></textarea>
+				</div>
+			</div>
+			<div class="form-group col-wd-10">
+				<label class="col-wd-2" for="maxFunction">最大化/还原脚本</label>
+				<div class="col-wd-7">
+					<textarea class="form-control col-wd-10" id="maxFunction" name="maxFunction" placeholder="窗口最大化/还原时执行脚本"></textarea>
+				</div>
+			</div>
+			<div class="col-wd-10">
+				<div class="alert"></div>
+			</div>
+		</form>
+		<div class="form-group form-buttons col-wd-10">
+			<button class="btn btn-success btn-submit"> 提交 </button>
+			<button class="btn btn-warning btn-cancel"> 放弃 </button>
+		</div>
+	</div>
+	
+	<script type="text/html" id="icon.tpl">
+	<div class="icon-box {{d.css}}" data-path="{{d.path}}">
+		<img src="{{d.src}}" width="72" height="72"/>
+		<div class="choose-state">√</div>
+	</div>
+	</script>
+	
+</body>
+</html>

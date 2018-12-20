@@ -1,0 +1,82 @@
+@CHARSET "UTF-8";
+
+@IMPORT url("page-common.css");
+
+.wrapper-content {
+    padding: 20px 0;
+}
+
+.form-group {
+	margin-bottom: 10px !important;
+}
+
+.form-group > label {
+	margin-right: 50px !important;
+}
+
+.form-buttons {
+    text-align: center;
+}
+
+.form-buttons button {
+    min-width: 80px;
+    margin-right: 10px;
+}
+
+#meetRemark {
+	min-height: 120px;
+}
+
+.tree-panel {
+    position: absolute;
+    width: 70%;
+    height: 500px;
+    overflow: hidden;
+    z-index: 500;
+    background: #ffffff;
+    border: 1px solid #dddddd;
+    box-shadow: 2px 2px 4px #eeeeee;
+    padding: 10px 20px !important;
+}
+
+.member-box .chosen-container .chosen-drop {
+	left: -9999px !important;
+}
+
+.btn-ok, .btn-no {
+    padding: 5px 25px !important;
+    margin-right: 20px !important;
+}
+
+.tree-foot {
+    width: 100%;
+    text-align: center;
+    padding: 15px;
+}
+
+.tree-Body {
+    width: 100;
+}
+
+.tree-body {
+    width: 100%;
+    height: calc(100% - 50px);
+    overflow-y: auto;
+}
+
+.modal-dialog {
+	width: 500px;
+}
+
+#meetStart, #meetEnd {
+	width: 160px;	
+}
+
+.time-box {
+    line-height: 30px;
+    height: 32px;
+}
+
+.time-box:nth-child(2) > label {
+    text-align: center;
+}

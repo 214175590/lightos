@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<title> Zookeeper服务管理 </title>
+<meta name="renderer" content="webkit" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<link rel="stylesheet" href="../../content/css/zk-index.css" />
+<script id="seajsnode" type="text/javascript" src="../../loader.js" data-js="./js/index"></script></head>
+<body class="frame">
+	<div class="list">
+			
+	</div>
+	<div class="pager">
+		<span class="p-i left btn-prev" data-toggle="tooltip" data-tip-class="tooltip-primary" title="上一页"><i class="icon icon-arrow-left icon-3x"></i></span>
+		<span class="p-i right btn-next" data-toggle="tooltip" data-tip-class="tooltip-primary" title="下一页"><i class="icon icon-arrow-right icon-3x"></i></span>
+	</div>
+	<div class="funcs right">
+		<i class="icon icon-plus-sign icon-5x btn-add" data-toggle="tooltip" data-tip-class="tooltip-primary" title="新增ZK服务节点"></i>
+	</div>
+	<div class="funcs left">
+		<i class="icon icon-refresh icon-5x btn-reload" data-toggle="tooltip" data-tip-class="tooltip-primary" title="重新加载ZK服务节点"></i>
+	</div>
+	
+	<script type="text/html" id="node.html">
+		<div class="zk-node {{d.status}}">
+		    <div class="node">
+		        <div class="name" data-id="{{d.id}}">
+			    	<div class="logo"><img src="{{d.root}}content/images/icons/icon_46.png" width="84" height="84"></div>
+		            <span>{{d.ip}}:{{d.port}}</span><br>
+		            <span>{{d.desc}}</span>
+		        </div>
+		        <div class="box">
+		            <div class="line">
+						版本号：{{d.version}}
+		            </div>
+		            <div class="line">
+						连接数：{{d.connections}}
+		            </div>
+		            <div class="line">
+						节点数：{{d.nodeCount}}
+		            </div>
+		        </div>
+				<div class="tools" data-id="{{d.id}}">
+					<i class="icon icon-node btn-detail" data-toggle="tooltip" data-tip-class="tooltip-primary" title="查看ZK子节点明细"></i>
+					<i class="icon icon-play btn-play {{d.edit ? '' : 'hidden'}} {{d.status == 'ONLINE' ? 'hidden' : ''}}" data-toggle="tooltip" data-tip-class="tooltip-primary" title="启动ZK服务"></i>
+					<i class="icon icon-cube-alt btn-cmd {{d.cmd ? '' : 'hidden'}}" data-toggle="tooltip" data-tip-class="tooltip-primary" title="ZK 4字命令"></i>
+					<i class="icon icon-edit btn-edit {{d.edit ? '' : 'hidden'}}" data-toggle="tooltip" data-tip-class="tooltip-primary" title="编辑ZK服务节点"></i>
+    				<i class="icon icon-trash btn-del {{d.del ? '' : 'hidden'}}" data-toggle="tooltip" data-tip-class="tooltip-primary" title="删除ZK服务节点（只是删除数据库记录，并非删除服务器的ZK服务）"></i>
+				</div>
+			</div>
+		</div>
+	</script>
+</body>
+</html>
